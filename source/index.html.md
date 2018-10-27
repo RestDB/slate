@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: RestDB API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -8,7 +8,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://restdb.io'>Sign Up for a new Database</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -16,224 +16,107 @@ includes:
 
 search: true
 ---
-
-# Introduction
-
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
+# Authentication with your RestDB database
 
 > To authorize, use this code:
 
 ```ruby
 require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Kittn::APIClient.authorize!('MY-API-KEY-HERE')
 ```
 
 ```python
 import kittn
 
-api = kittn.authorize('meowmeowmeow')
+api = kittn.authorize('MY-API-KEY-HERE')
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: MY-API-KEY-HERE"
 ```
 
 ```javascript
 const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize('MY-API-KEY-HERE');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `MY-API-KEY-HERE` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+RestDB uses API keys to allow access to the API. You can register a new API key at our [developer portal](http://example.com/developers).
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+RestDB expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+`Authorization: MY-API-KEY-HERE`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>MY-API-KEY-HERE</code> with your personal API key.
 </aside>
 
-# Kittens
 
-## Get All Kittens
+## CORS API keys
+bla bla bla.
+
+> CORS code:
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+cors = Kittn::APIClient.poff!('MY-API-KEY-HERE')
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+api = kittn.authorize('MY-API-KEY-HERE')
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+# With shell, you can just pass the correct header with each request
+curl "api_endpoint_here"
+  -H "Authorization: MY-API-KEY-HERE"
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+let api = kittn.authorize('MY-API-KEY-HERE');
 ```
+> CORS is fun.
 
-> The above command returns JSON structured like this:
+## JWT tokens
+bla bla bla
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+## Auth0 integration
+bla bla bla
 
-This endpoint retrieves all kittens.
+# REST database API
 
-### HTTP Request
+One of the core features of the restdb.io database cloud service is the [Restful](https://en.wikipedia.org/wiki/Representational_state_transfer) API which automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. 
 
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+*HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or authorization [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) token as a parameter or as a request header field.*
 </aside>
 
-## Get a Specific Kitten
+Read more about [how to query database here](https://restdb.io/docs/querying-with-the-api).
 
-```ruby
-require 'kittn'
+Code examples for [popular programming languages here.](https://restdb.io/docs/rest-api-code-examples#restdb)
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+## Using POST to emulate PUT, DELETE, PATCH
+If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the `X-HTTP-Method-Override` header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.
 
-```python
-import kittn
+## Media Content API
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+Read more about media archive [here](https://restdb.io/docs/media-archive).
 
-```javascript
-const kittn = require('kittn');
+## Meta Data API  
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+## Mail API  
 
-> The above command returns JSON structured like this:
+Read more [about mail API here](https://restdb.io/docs/mail-api#restdb).
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+## Quick example
 
-This endpoint retrieves a specific kitten.
+For our test database,  the REST endpoint URL is:
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+`https://rdb-simpledb.restdb.io/rest`
 
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
