@@ -213,6 +213,23 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#authentication-with-your-restdb-database" class="toc-h1 toc-link" data-title="Authentication with your RestDB database">Authentication with your RestDB database</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#collection-rest-api" class="toc-h2 toc-link" data-title="Collection REST API">Collection REST API</a>
+                  </li>
+                  <li>
+                    <a href="#media-content-api" class="toc-h2 toc-link" data-title="Media Content API">Media Content API</a>
+                  </li>
+                  <li>
+                    <a href="#meta-data-api" class="toc-h2 toc-link" data-title="Meta Data API">Meta Data API</a>
+                  </li>
+                  <li>
+                    <a href="#mail-api" class="toc-h2 toc-link" data-title="Mail API">Mail API</a>
+                  </li>
+                  <li>
+                    <a href="#quick-example" class="toc-h2 toc-link" data-title="Quick example">Quick example</a>
+                  </li>
+              </ul>
           </li>
       </ul>
     </div>
@@ -249,6 +266,258 @@ curl <span class="s2">"api_endpoint_here"</span>
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
+
+<p>One of the core features of the restdb.io database cloud service is the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API which automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects.</p>
+<h2 id='collection-rest-api'>Collection REST API</h2>
+<p>A database collection (same as a SQL table) contains your JSON documents. </p>
+
+<table><thead>
+<tr>
+<th>HTTP Verb</th>
+<th>Resource</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Get list of JSON documents from database collection.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/ID</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Get one document from a collection. ID must be a valid ObjectID.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/ID/&lt;subcollection&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Get list of documents from subcollection (subcollection is field name of type child).</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/ID/&lt;subcollection&gt;/ID</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Get document from subcollection (subcollection is field name of type child) and ID is a valid ObjectID.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Create a new document in a collection. Request body is a valid JSON document.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/ID/&lt;subcollection&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Create a child document in a sub collection.</td>
+</tr>
+<tr>
+<td>POST <em>array</em></td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Post array data. Request body is an array of JSON documents. Optional parameter <code>validate=false</code>, for bulk inserts without validation. Will also work for child documents.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/ID</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Update a document in a collection. Request body is a valid JSON document.</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/ID</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Update one or more properties on a document in a collection. Request body is a valid JSON object.</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/ID</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Delete a document in a collection.</td>
+</tr>
+<tr>
+<td>DELETE <em>array</em></td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/*</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Delete an array of documents in a collection. Request body must be an array of ID&#39;s.</td>
+</tr>
+<tr>
+<td>DELETE <em>query</em></td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/*?q={...}</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Delete a list of documents in a collection. List is based on query in parameter <code>?q={...}</code>. Only allowed with a full access api-key or from a Codehook.</td>
+</tr>
+</tbody></table>
+
+<p><em>HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or authorization <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> token as a parameter or as a request header field.</em></p>
+
+<p>Read more about <a href="https://restdb.io/docs/querying-with-the-api">how to query database here</a>.</p>
+
+<p>Code examples for <a href="https://restdb.io/docs/rest-api-code-examples#restdb">popular programming languages here.</a></p>
+<h3 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h3>
+<p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
+<h2 id='media-content-api'>Media Content API</h2>
+<table><thead>
+<tr>
+<th>Http Verb</th>
+<th>Resource</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/media/ID</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Get binary data for media object with ID. ID is a valid ObjectID for an object in the media archive or an existing filename. Parameter s options; <code>?s=t</code> (thumbnail), <code>?s=w</code> (web) and <code>?s=o</code> (original size). No API-key required. Use parameter <code>?download=true</code> if you want the image or file to be downloaded instead of displayed.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/media/ID/meta</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Get JSON structure with media object metadata. Requires API-key.</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/media</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Post file(s) using the multipart/formdata protocol, view <a href="https://restdb.io/blog/#!posts/570d28ae385af21e000000af">example</a>. Requires API-key.</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/media</code></td>
+</tr>
+<tr>
+<td></td>
+<td><em>Not yet implemented</em></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/media/ID</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Delete media content with ID. Requires API-key.</td>
+</tr>
+</tbody></table>
+
+<p>Read more about media archive <a href="https://restdb.io/docs/media-archive">here</a>.</p>
+<h2 id='meta-data-api'>Meta Data API</h2>
+<table><thead>
+<tr>
+<th>Http Verb</th>
+<th>Resource</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GET</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/_meta</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Get meta data for the database as a JSON object.</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/rest/&lt;collection&gt;/_meta</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Get meta data for the collection as a JSON object.</td>
+</tr>
+</tbody></table>
+
+<p><a name="mail" class="anchor"></a></p>
+<h2 id='mail-api'>Mail API</h2>
+<table><thead>
+<tr>
+<th>Http Verb</th>
+<th>Resource</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>POST</td>
+<td><code>https://&lt;dburl&gt;.restdb.io/mail</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Send email. Request body contains one document:<br> <code>{&quot;to&quot;: &quot;...&quot;, &quot;subject&quot;: &quot;...&quot;, &quot;html&quot;: &quot;...&quot;, &quot;company&quot;: &quot;...&quot;, &quot;sendername&quot;: &quot;...&quot;}</code><br>, or an array of documents <code>[{…},{…}]</code></td>
+</tr>
+</tbody></table>
+
+<p>Read more <a href="https://restdb.io/docs/mail-api#restdb">about mail API here</a>.</p>
+<h2 id='quick-example'>Quick example</h2>
+<p>For our test database,  the REST endpoint URL is:</p>
+
+<p><code>https://rdb-simpledb.restdb.io/rest</code></p>
+
+<p><strong>GET</strong> - read all items from a collection with rest api  </p>
+<pre class="highlight shell"><code>    curl -i -H <span class="s2">"Accept: application/json"</span><span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span><span class="se">\</span>
+     -H <span class="s2">"x-apikey: 560bd47058e7ab1b2648f4e7"</span><span class="se">\</span>
+     -X GET <span class="s2">"https://rdb-simpledb.restdb.io/rest/product"</span>
+</code></pre>
+<p><a href="https://app.getpostman.com/run-collection/ebb20af93564c2966fa6"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+
+<p>Example database output from GET Restful request above:</p>
+<pre class="highlight javascript"><code>    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5602647c7f98025500000041"</span><span class="p">,</span>
+            <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Saepe adipisci illo restful dignissimos. Dicta generate occaecati ex ducimus."</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Quaerat consectetur"</span><span class="p">,</span>
+            <span class="s2">"photos"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"55a68f6fc53a0b2a00000006"</span>
+            <span class="p">],</span>
+            <span class="s2">"serialno"</span><span class="p">:</span> <span class="s2">"16177"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5602647c7f9802550000003c"</span><span class="p">,</span>
+            <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Harum voluptas vitae restful consequatur with rest api."</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Ratione iste recusandae"</span><span class="p">,</span>
+            <span class="s2">"photos"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"55a68f6fc53a0bbc00000009"</span>
+            <span class="p">],</span>
+            <span class="s2">"serialno"</span><span class="p">:</span> <span class="s2">"23588"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+</code></pre>
+<p><strong>GET</strong> - read one database item from a collection requires an unique objectID (the _id field)</p>
+<pre class="highlight shell"><code>    curl -i -H <span class="s2">"Accept: application/json"</span><span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span><span class="se">\</span>
+     -H <span class="s2">"x-apikey: 560bd47058e7ab1b2648f4e7"</span><span class="se">\</span>
+     -X GET <span class="s1">'https://rdb-simpledb.restdb.io/rest/product/5602647c7f98025500000041'</span>
+</code></pre>
+<p><a href="https://app.getpostman.com/run-collection/ebb20af93564c2966fa6"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 
       </div>
       <div class="dark-box">
