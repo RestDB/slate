@@ -272,12 +272,14 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <h1 id='rest-api'>REST API</h1>
 <p>One of the core features of the restdb.io database cloud service is the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API which automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
 
-<p><em>HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or authorization <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> token as a parameter or as a request header field.</em></p>
+<aside class="notice">
+*HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or authorization [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) token as a parameter or as a request header field.*
+</aside>
 
 <p>Read more about <a href="https://restdb.io/docs/querying-with-the-api">how to query database here</a>.</p>
 
 <p>Code examples for <a href="https://restdb.io/docs/rest-api-code-examples#restdb">popular programming languages here.</a></p>
-<h3 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h3>
+<h2 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h2>
 <p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
 <h2 id='media-content-api'>Media Content API</h2>
 <p>Read more about media archive <a href="https://restdb.io/docs/media-archive">here</a>.</p>
