@@ -337,9 +337,11 @@ curl <span class="s2">"api_endpoint_here"</span>
 <h1 id='rest-database-api'>REST database API</h1>
 <p>One of the core features of the restdb.io database cloud service is the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API which automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
 
-<aside class="notice">
-*HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or authorization [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) token as a parameter or as a request header field.*
+<aside class="warning">
+*HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or `Authorization: Bearer JWT-Token` header value.
 </aside>
+
+<p><a href="https://ras-blogdb.restdb.io/media/5b460a6f6c58d32700000675?o=w">jwt</a></p>
 
 <p>Read more about <a href="https://restdb.io/docs/querying-with-the-api">how to query database here</a>.</p>
 
