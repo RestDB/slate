@@ -245,9 +245,6 @@
                     <a href="#get" class="toc-h2 toc-link" data-title="GET">GET</a>
                   </li>
                   <li>
-                    <a href="#relations-in-data" class="toc-h2 toc-link" data-title="Relations in data">Relations in data</a>
-                  </li>
-                  <li>
                     <a href="#real-time-api" class="toc-h2 toc-link" data-title="Real time API">Real time API</a>
                   </li>
                   <li>
@@ -280,6 +277,9 @@
                     <a href="#aggregation" class="toc-h2 toc-link" data-title="Aggregation">Aggregation</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#relations-in-data" class="toc-h1 toc-link" data-title="Relations in data">Relations in data</a>
           </li>
           <li>
             <a href="#custom-routes" class="toc-h1 toc-link" data-title="Custom routes">Custom routes</a>
@@ -398,9 +398,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 </aside>
 <h1 id='rest-database-api'>REST database API</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
-<h2 id='get'>GET</h2><h2 id='relations-in-data'>Relations in data</h2>
-<p>bla bla</p>
-
+<h2 id='get'>GET</h2>
 <aside class="information">
 Using POST to emulate PUT, DELETE, PATCH
 If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the `X-HTTP-Method-Override` header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.
@@ -422,6 +420,8 @@ If your development platform or firewall rules prevent you from calling HTTP met
 <h2 id='logic'>Logic</h2>
 <p>bla bla</p>
 <h2 id='aggregation'>Aggregation</h2>
+<p>bla bla</p>
+<h1 id='relations-in-data'>Relations in data</h1>
 <p>bla bla</p>
 <h1 id='custom-routes'>Custom routes</h1>
 <p>bla bla</p>
