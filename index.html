@@ -239,10 +239,13 @@
               </ul>
           </li>
           <li>
-            <a href="#rest-database-api" class="toc-h1 toc-link" data-title="REST database API">REST database API</a>
+            <a href="#rest-apis" class="toc-h1 toc-link" data-title="REST APIs">REST APIs</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get" class="toc-h2 toc-link" data-title="GET">GET</a>
+                    <a href="#get-resource" class="toc-h2 toc-link" data-title="GET resource">GET resource</a>
+                  </li>
+                  <li>
+                    <a href="#post-resource" class="toc-h2 toc-link" data-title="POST resource">POST resource</a>
                   </li>
                   <li>
                     <a href="#real-time-api" class="toc-h2 toc-link" data-title="Real time API">Real time API</a>
@@ -421,9 +424,17 @@ curl <span class="s2">"api_endpoint_here"</span>
 <aside class="warning">
 *HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or a JWT token.
 </aside>
-<h1 id='rest-database-api'>REST database API</h1>
+<h1 id='rest-apis'>REST APIs</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
-<h2 id='get'>GET</h2>
+<h2 id='get-resource'>GET resource</h2>
+<p>bla bla</p>
+<h3 id='header-values'>Header values</h3>
+<p>bal bla</p>
+<h2 id='post-resource'>POST resource</h2>
+<p>bla bla</p>
+<h3 id='data-payload'>Data payload</h3>
+<p>bla bla</p>
+
 <aside class="information">
 Using POST to emulate PUT, DELETE, PATCH
 If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the `X-HTTP-Method-Override` header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.
