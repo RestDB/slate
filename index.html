@@ -239,7 +239,7 @@
               </ul>
           </li>
           <li>
-            <a href="#rest-apis" class="toc-h1 toc-link" data-title="REST APIs">REST APIs</a>
+            <a href="#database-rest-api" class="toc-h1 toc-link" data-title="Database REST API">Database REST API</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-resource" class="toc-h2 toc-link" data-title="GET resource">GET resource</a>
@@ -247,31 +247,31 @@
                   <li>
                     <a href="#post-resource" class="toc-h2 toc-link" data-title="POST resource">POST resource</a>
                   </li>
-                  <li>
-                    <a href="#real-time-api" class="toc-h2 toc-link" data-title="Real time API">Real time API</a>
-                  </li>
-                  <li>
-                    <a href="#media-content-api" class="toc-h2 toc-link" data-title="Media Content API">Media Content API</a>
-                  </li>
-                  <li>
-                    <a href="#meta-data-api" class="toc-h2 toc-link" data-title="Meta Data API">Meta Data API</a>
-                  </li>
-                  <li>
-                    <a href="#mail-api" class="toc-h2 toc-link" data-title="Mail API">Mail API</a>
-                  </li>
-                  <li>
-                    <a href="#javascript-api" class="toc-h2 toc-link" data-title="JavaScript API">JavaScript API</a>
-                  </li>
-                  <li>
-                    <a href="#plugin-api" class="toc-h2 toc-link" data-title="Plugin API">Plugin API</a>
-                  </li>
-                  <li>
-                    <a href="#codehook-api" class="toc-h2 toc-link" data-title="Codehook API">Codehook API</a>
-                  </li>
-                  <li>
-                    <a href="#snapshot-api" class="toc-h2 toc-link" data-title="Snapshot API">Snapshot API</a>
-                  </li>
               </ul>
+          </li>
+          <li>
+            <a href="#real-time-api" class="toc-h1 toc-link" data-title="Real time API">Real time API</a>
+          </li>
+          <li>
+            <a href="#media-content-api" class="toc-h1 toc-link" data-title="Media Content API">Media Content API</a>
+          </li>
+          <li>
+            <a href="#meta-data-api" class="toc-h1 toc-link" data-title="Meta Data API">Meta Data API</a>
+          </li>
+          <li>
+            <a href="#mail-api" class="toc-h1 toc-link" data-title="Mail API">Mail API</a>
+          </li>
+          <li>
+            <a href="#javascript-api" class="toc-h1 toc-link" data-title="JavaScript API">JavaScript API</a>
+          </li>
+          <li>
+            <a href="#plugin-api" class="toc-h1 toc-link" data-title="Plugin API">Plugin API</a>
+          </li>
+          <li>
+            <a href="#codehook-api" class="toc-h1 toc-link" data-title="Codehook API">Codehook API</a>
+          </li>
+          <li>
+            <a href="#snapshot-api" class="toc-h1 toc-link" data-title="Snapshot API">Snapshot API</a>
           </li>
           <li>
             <a href="#database-query-language" class="toc-h1 toc-link" data-title="Database query language">Database query language</a>
@@ -424,7 +424,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 <aside class="warning">
 *HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or a JWT token.
 </aside>
-<h1 id='rest-apis'>REST APIs</h1>
+<h1 id='database-rest-api'>Database REST API</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
 <h2 id='get-resource'>GET resource</h2>
 <p>bla bla</p>
@@ -439,19 +439,19 @@ curl <span class="s2">"api_endpoint_here"</span>
 Using POST to emulate PUT, DELETE, PATCH
 If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the `X-HTTP-Method-Override` header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.
 </aside>
-<h2 id='real-time-api'>Real time API</h2>
+<h1 id='real-time-api'>Real time API</h1>
 <p>bla bla</p>
-<h2 id='media-content-api'>Media Content API</h2>
+<h1 id='media-content-api'>Media Content API</h1>
 <p>Read more about media archive <a href="https://restdb.io/docs/media-archive">here</a>.</p>
-<h2 id='meta-data-api'>Meta Data API</h2><h2 id='mail-api'>Mail API</h2>
+<h1 id='meta-data-api'>Meta Data API</h1><h1 id='mail-api'>Mail API</h1>
 <p>Read more <a href="https://restdb.io/docs/mail-api#restdb">about mail API here</a>.</p>
-<h2 id='javascript-api'>JavaScript API</h2>
+<h1 id='javascript-api'>JavaScript API</h1>
 <p>bla bla</p>
-<h2 id='plugin-api'>Plugin API</h2>
+<h1 id='plugin-api'>Plugin API</h1>
 <p>bla bla</p>
-<h2 id='codehook-api'>Codehook API</h2>
+<h1 id='codehook-api'>Codehook API</h1>
 <p>bla bla</p>
-<h2 id='snapshot-api'>Snapshot API</h2>
+<h1 id='snapshot-api'>Snapshot API</h1>
 <p>bla bla</p>
 <h1 id='database-query-language'>Database query language</h1>
 <p>bla bla</p>
