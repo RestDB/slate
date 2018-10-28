@@ -242,9 +242,6 @@
             <a href="#rest-database-api" class="toc-h1 toc-link" data-title="REST database API">REST database API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#using-post-to-emulate-put-delete-patch" class="toc-h2 toc-link" data-title="Using POST to emulate PUT, DELETE, PATCH">Using POST to emulate PUT, DELETE, PATCH</a>
-                  </li>
-                  <li>
                     <a href="#real-time-api" class="toc-h2 toc-link" data-title="Real time API">Real time API</a>
                   </li>
                   <li>
@@ -401,8 +398,11 @@ curl <span class="s2">"api_endpoint_here"</span>
 <p>Read more about <a href="https://restdb.io/docs/querying-with-the-api">how to query database here</a>.</p>
 
 <p>Code examples for <a href="https://restdb.io/docs/rest-api-code-examples#restdb">popular programming languages here.</a></p>
-<h2 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h2>
-<p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
+
+<aside class="information">
+Using POST to emulate PUT, DELETE, PATCH
+If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the `X-HTTP-Method-Override` header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.
+</aside>
 <h2 id='real-time-api'>Real time API</h2>
 <p>bla bla</p>
 <h2 id='media-content-api'>Media Content API</h2>
