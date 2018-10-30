@@ -472,15 +472,15 @@ curl -X GET <span class="se">\</span>
 </code></pre><pre class="highlight swift tab-swift"><code><span class="kt">Swift</span> <span class="n">code</span> <span class="n">here</span><span class="o">...</span>
 </code></pre>
 <blockquote>
-<p>The above queries result in the following JSON output.</p>
+<p>The above queries result in the following JSON array output.</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"professional"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre><h2 id='get-data-from-a-collection'>GET data from a collection</h2>
 <p><code>GET https://&lt;mydatabase&gt;.restdb.io/rest/&lt;collection&gt;[?query parameters]</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
@@ -509,23 +509,28 @@ curl -X GET <span class="se">\</span>
 </thead><tbody>
 <tr>
 <td>q</td>
-<td>{}</td>
-<td>Database Query. JSON format.</td>
+<td><code>{}</code></td>
+<td>Database Query. JSON format</td>
 </tr>
 <tr>
 <td>h</td>
-<td>{}</td>
-<td>Hint for Query and output. JSON format.</td>
+<td><code>{}</code></td>
+<td>Hint for Query and output. JSON format</td>
 </tr>
 <tr>
 <td>filter</td>
-<td>none</td>
-<td>Free text search filter.</td>
+<td></td>
+<td>Free text search filter</td>
 </tr>
 <tr>
 <td>sort</td>
 <td><code>_id</code></td>
-<td>Field to sort query result on.</td>
+<td>Field to sort query result on</td>
+</tr>
+<tr>
+<td>dir</td>
+<td><code>-1</code></td>
+<td>Sort direction, -1 = ascending, 1 = descending</td>
 </tr>
 </tbody></table>
 <h3 id='header-values'>Header values</h3>
