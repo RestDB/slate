@@ -642,7 +642,7 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$fields</code><br/>OPT</td>
+<td><code>$fields</code></td>
 <td>Show or hide fields in the output data result set. E.g. <code>h={&quot;$fields&quot;:{&quot;title&quot;:1, &quot;age&quot;: 0}</code>. Mixing values 0 and 1 are not allowed</td>
 </tr>
 <tr>
@@ -659,11 +659,11 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 <tr>
 <td><code>$groupby</code></td>
-<td>Group data by field(s). E.g. <code>h={&quot;$groupby&quot;:[&quot;age&quot;, &quot;position&quot;}</code></td>
+<td>Group data by field(s). E.g. <code>h={&quot;$groupby&quot;:[&quot;age&quot;, &quot;position&quot;}</code>. See <a href="#aggregation">aggregation</a></td>
 </tr>
 <tr>
 <td><code>$aggregate</code></td>
-<td>Aggregate data by expression(s). <code>h={&quot;$aggregate&quot;:[&quot;SUM:score&quot;]}</code></td>
+<td>Aggregate data by expression(s). <code>h={&quot;$aggregate&quot;:[&quot;SUM:score&quot;]}</code>. See <a href="#aggregation">aggregation</a></td>
 </tr>
 </tbody></table>
 <h3 id='meta-fields'>Meta fields</h3>
@@ -704,7 +704,19 @@ curl -g -X GET <span class="se">\</span>
         </span><span class="s2">"_createdby"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jones@restdb.io"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h2 id='query-language'>Query language</h2>
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Metafield</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>_id</code></td>
+<td>Unique docuent ID.</td>
+</tr>
+</tbody></table>
+<h2 id='query-language'>Query language</h2>
 <p>bla bla</p>
 <h3 id='logic'>Logic</h3>
 <p>bla bla</p>
