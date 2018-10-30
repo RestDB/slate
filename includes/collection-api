@@ -331,8 +331,6 @@ curl -g -X GET <span class="se">\</span>
 <p>bla bla</p>
 <h3 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h3>
 <p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
-<h1 id='real-time-api'>Real time API</h1>
-<p>bla bla</p>
 <h1 id='media-content-api'>Media Content API</h1>
 <p>Read more about media archive <a href="https://restdb.io/docs/media-archive">here</a>.</p>
 <h1 id='meta-data-api'>Meta Data API</h1><h1 id='mail-api'>Mail API</h1>
