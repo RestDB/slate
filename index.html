@@ -202,7 +202,7 @@
     <link href="images/favicon.ico" rel="icon" type="image/ico" />
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;javascript&quot;,&quot;python&quot;,&quot;java&quot;,&quot;csharp&quot;,&quot;swift&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript--node&quot;,&quot;javascript--browser&quot;,&quot;python&quot;,&quot;java&quot;,&quot;csharp&quot;,&quot;swift&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -213,8 +213,8 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
-              <a href="#" data-language-name="javascript">Node.js</a>
-              <a href="#" data-language-name="javascript">JavaScript</a>
+              <a href="#" data-language-name="javascript--node">javascript--node</a>
+              <a href="#" data-language-name="javascript--browser">javascript--browser</a>
               <a href="#" data-language-name="python">Python</a>
               <a href="#" data-language-name="java">Java</a>
               <a href="#" data-language-name="csharp">C# (.NET)</a>
@@ -469,23 +469,23 @@ curl -X GET <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
-</code></pre><pre class="highlight plaintext"><code>// Node.js Javascript
-var request = require("request");
+</code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="c1">// Node.js Javascript</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
-var options = { method: 'GET',
-  url: 'https://sports-xf03.restdb.io/rest/players',
-  qs: { q: '{"status": "professional"}' },
-  headers: 
-   { 'cache-control': 'no-cache',
-     'x-apikey': '73bf145c901d1fcece81c26a9d0d1a64aa145',
-     'Content-Type': 'application/json' } };
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://sports-xf03.restdb.io/rest/players'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">q</span><span class="p">:</span> <span class="s1">'{"status": "professional"}'</span> <span class="p">},</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'x-apikey'</span><span class="p">:</span> <span class="s1">'73bf145c901d1fcece81c26a9d0d1a64aa145'</span><span class="p">,</span>
+     <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span> <span class="p">}</span> <span class="p">};</span>
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
 
-  console.log(body);
-});
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// Browser version</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="c1">// Browser version</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
@@ -625,8 +625,8 @@ If your development platform or firewall rules prevent you from calling HTTP met
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">cURL</a>
-                <a href="#" data-language-name="javascript">Node.js</a>
-                <a href="#" data-language-name="javascript">JavaScript</a>
+                <a href="#" data-language-name="javascript--node">javascript--node</a>
+                <a href="#" data-language-name="javascript--browser">javascript--browser</a>
                 <a href="#" data-language-name="python">Python</a>
                 <a href="#" data-language-name="java">Java</a>
                 <a href="#" data-language-name="csharp">C# (.NET)</a>
