@@ -242,10 +242,10 @@
               </ul>
           </li>
           <li>
-            <a href="#database-rest-api" class="toc-h1 toc-link" data-title="Database REST API">Database REST API</a>
+            <a href="#database-collection-rest-api" class="toc-h1 toc-link" data-title="Database collection REST API">Database collection REST API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-resource" class="toc-h2 toc-link" data-title="GET resource">GET resource</a>
+                    <a href="#get-data-from-a-collection" class="toc-h2 toc-link" data-title="GET data from a collection">GET data from a collection</a>
                   </li>
                   <li>
                     <a href="#post-resource" class="toc-h2 toc-link" data-title="POST resource">POST resource</a>
@@ -421,10 +421,30 @@ curl <span class="s2">"api_endpoint_here"</span>
 <aside class="warning">
 *HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or a JWT token.
 </aside>
-<h1 id='database-rest-api'>Database REST API</h1>
+<h1 id='database-collection-rest-api'>Database collection REST API</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
-<h2 id='get-resource'>GET resource</h2>
-<p>bla bla</p>
+<h2 id='get-data-from-a-collection'>GET data from a collection</h2>
+<p><code>GET https://&lt;mydatabase&gt;.restdb.io/rest/&lt;collection&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mydatabase</td>
+<td>Your unique database name, e.g. <code>sports-xf03</code></td>
+</tr>
+<tr>
+<td>collection</td>
+<td>A unique collection name in your database, e.g. <code>players</code></td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+JSON data returned from the query.
+</aside>
 <h3 id='header-values'>Header values</h3>
 <p>bal bla</p>
 <h2 id='post-resource'>POST resource</h2>
