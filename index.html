@@ -250,6 +250,9 @@
                     <a href="#get-data-from-a-collection" class="toc-h2 toc-link" data-title="GET data from a collection">GET data from a collection</a>
                   </li>
                   <li>
+                    <a href="#query-hints" class="toc-h2 toc-link" data-title="Query hints">Query hints</a>
+                  </li>
+                  <li>
                     <a href="#post-resource" class="toc-h2 toc-link" data-title="POST resource">POST resource</a>
                   </li>
                   <li>
@@ -515,7 +518,7 @@ curl -X GET <span class="se">\</span>
 <tr>
 <td>h</td>
 <td><code>{}</code></td>
-<td><a href="#Query%20hints">hints</a> for Query and output. JSON format</td>
+<td><a href="#Query%20hints">Query hints</a> for Query and output. JSON format</td>
 </tr>
 <tr>
 <td>filter</td>
@@ -550,17 +553,14 @@ curl -X GET <span class="se">\</span>
 </tbody></table>
 <h3 id='header-values'>Header values</h3>
 <p>bal bla</p>
-<h3 id='query-hints'>Query hints</h3>
+<h2 id='query-hints'>Query hints</h2>
 <p>bla bla hints</p>
 <h2 id='post-resource'>POST resource</h2>
 <p>bla bla</p>
 <h3 id='data-payload'>Data payload</h3>
 <p>bla bla</p>
-
-<aside class="information">
-Using POST to emulate PUT, DELETE, PATCH
-If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the `X-HTTP-Method-Override` header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.
-</aside>
+<h3 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h3>
+<p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
 <h2 id='query-language'>Query language</h2>
 <p>bla bla</p>
 <h3 id='logic'>Logic</h3>
