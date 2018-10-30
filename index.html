@@ -641,7 +641,29 @@ curl -g -X GET <span class="se">\</span>
 <h3 id='header-values'>Header values</h3>
 <p>bal bla</p>
 <h3 id='query-hints'>Query hints</h3>
-<p>bla bla hints</p>
+<table><thead>
+<tr>
+<th>Hint</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$fields</code></td>
+<td>Show or hide fields in the output data result set. <code>h={&quot;$fields&quot;:{&quot;title&quot;:1, &quot;age&quot;: 0}</code>. Mixing values 0 and 1 are not allowed</td>
+</tr>
+<tr>
+<td><code>$max</code></td>
+<td>Max records returnes by query</td>
+</tr>
+<tr>
+<td><code>$skip</code></td>
+<td>Skip records</td>
+</tr>
+<tr>
+<td><code>$orderby</code></td>
+<td>Sort by field(s). <code>h={&quot;$orderby&quot;: {&quot;salary&quot;: 1, &quot;age&quot;: -1}</code></td>
+</tr>
+</tbody></table>
 <h3 id='meta-fields'>Meta fields</h3>
 <p>The example query URL below show how metafields are return with the user data.</p>
 
