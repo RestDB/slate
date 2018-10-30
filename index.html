@@ -649,19 +649,19 @@ curl -g -X GET <span class="se">\</span>
 </thead><tbody>
 <tr>
 <td><code>$fields</code></td>
-<td>Show or hide fields in the output data result set. <code>h={&quot;$fields&quot;:{&quot;title&quot;:1, &quot;age&quot;: 0}</code>. Mixing values 0 and 1 are not allowed</td>
+<td>Show or hide fields in the output data result set. E.g. <code>h={&quot;$fields&quot;:{&quot;title&quot;:1, &quot;age&quot;: 0}</code>. Mixing values 0 and 1 are not allowed</td>
 </tr>
 <tr>
 <td><code>$max</code></td>
-<td>Max records returnes by query</td>
+<td>Max records returnes by query. E.g. <code>h={&quot;$max&quot;: 20}</code></td>
 </tr>
 <tr>
 <td><code>$skip</code></td>
-<td>Skip records</td>
+<td>Skip records. E.g. <code>h={&quot;$skip&quot;: 100}</code></td>
 </tr>
 <tr>
 <td><code>$orderby</code></td>
-<td>Sort by field(s). <code>h={&quot;$orderby&quot;: {&quot;salary&quot;: 1, &quot;age&quot;: -1}</code></td>
+<td>Sort by field(s). E.g. <code>h={&quot;$orderby&quot;: {&quot;salary&quot;: 1, &quot;age&quot;: -1}</code></td>
 </tr>
 </tbody></table>
 <h3 id='meta-fields'>Meta fields</h3>
