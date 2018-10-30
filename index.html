@@ -548,10 +548,77 @@ curl -X GET <span class="se">\</span>
 <tr>
 <td>metafields</td>
 <td></td>
-<td>Add system fields in data result, <code>_keywords, _tags, _version, _created, _createdby, _mock</code></td>
+<td>Add system fields in data result, <code>_keywords</code>, <code>_tags</code>, <code>_version</code>, <code>_created</code>, <code>_createdby</code>, <code>_mock</code></td>
+</tr>
+<tr>
+<td>totals</td>
+<td>false</td>
+<td>Return data and total count</td>
+</tr>
+<tr>
+<td>groupby</td>
+<td></td>
+<td>Group data by field</td>
+</tr>
+<tr>
+<td>aggregate</td>
+<td></td>
+<td>Aggregae data by field</td>
+</tr>
+<tr>
+<td>apikey</td>
+<td></td>
+<td>Add an apikey in as request parameter instead of as a header value (not recommended)</td>
+</tr>
+<tr>
+<td>idtolink</td>
+<td></td>
+<td>URLs for links and images</td>
+</tr>
+<tr>
+<td>flatten</td>
+<td></td>
+<td>Place deep properies on root object</td>
+</tr>
+<tr>
+<td>referencedby</td>
+<td></td>
+<td>refs</td>
+</tr>
+<tr>
+<td>fetchmediadata</td>
+<td></td>
+<td>media</td>
+</tr>
+<tr>
+<td>fetchchildren</td>
+<td></td>
+<td>child data</td>
+</tr>
+<tr>
+<td>format</td>
+<td></td>
+<td>.js or .html</td>
 </tr>
 </tbody></table>
-<h3 id='header-values'>Header values</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f47900000137"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aliquet Nec Corporation"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P.O. Box 392, 9973 Euismod St."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saint-Nicolas"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Q66 9QT"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='header-values'>Header values</h3>
 <p>bal bla</p>
 <h2 id='query-hints'>Query hints</h2>
 <p>bla bla hints</p>
