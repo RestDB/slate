@@ -424,7 +424,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 <h1 id='database-collection-rest-api'>Database collection REST API</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
 <h2 id='get-data-from-a-collection'>GET data from a collection</h2>
-<p><code>GET https://&lt;mydatabase&gt;.restdb.io/rest/&lt;collection&gt;</code></p>
+<p><code>GET https://&lt;mydatabase&gt;.restdb.io/rest/&lt;collection&gt;[?query parameters]</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -462,7 +462,10 @@ curl <span class="s2">"api_endpoint_here"</span>
 </tbody></table>
 <h3 id='header-values'>Header values</h3>
 <p>bal bla</p>
-<h2 id='post-resource'>POST resource</h2>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sports-xf03.restdb.io/rest/players?q={"</span>status<span class="s2">": "</span>pro<span class="s2">"}"</span>
+  -H <span class="s2">"x-apikey: MY-API-KEY-HERE"</span>
+</code></pre><h2 id='post-resource'>POST resource</h2>
 <p>bla bla</p>
 <h3 id='data-payload'>Data payload</h3>
 <p>bla bla</p>
