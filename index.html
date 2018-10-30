@@ -713,7 +713,35 @@ curl -g -X GET <span class="se">\</span>
 </thead><tbody>
 <tr>
 <td><code>_id</code></td>
-<td>Unique docuent ID.</td>
+<td>Unique document ID</td>
+</tr>
+<tr>
+<td><code>_keywords</code></td>
+<td>Array of unique words from the JSON document</td>
+</tr>
+<tr>
+<td><code>_tags</code></td>
+<td>Text string of unique words from the JSON document</td>
+</tr>
+<tr>
+<td><code>_version</code></td>
+<td>Number inncremented of each update</td>
+</tr>
+<tr>
+<td><code>_created</code></td>
+<td>ISO Date string from the document creation time</td>
+</tr>
+<tr>
+<td><code>_createdby</code></td>
+<td>Email/username for the authenticated user that created the document</td>
+</tr>
+<tr>
+<td><code>_changed</code></td>
+<td>ISO Date string from the document update time</td>
+</tr>
+<tr>
+<td><code>_changedby</code></td>
+<td>Email/username for the authenticated user that changed the document</td>
 </tr>
 </tbody></table>
 <h2 id='query-language'>Query language</h2>
