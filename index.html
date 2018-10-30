@@ -463,8 +463,11 @@ curl <span class="s2">"api_endpoint_here"</span>
 <h3 id='header-values'>Header values</h3>
 <p>bal bla</p>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://sports-xf03.restdb.io/rest/players?q={"</span>status<span class="s2">": "</span>pro<span class="s2">"}"</span>
-  -H <span class="s2">"x-apikey: MY-API-KEY-HERE"</span>
+curl -X GET <span class="se">\</span>
+  <span class="s1">'https://sports-xf03.restdb.io/rest/companies?q={%22status%22:%20%22professional%22}'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
 </code></pre><h2 id='post-resource'>POST resource</h2>
 <p>bla bla</p>
 <h3 id='data-payload'>Data payload</h3>
