@@ -545,12 +545,12 @@ curl -X GET <span class="se">\</span>
 <tr>
 <td>metafields</td>
 <td></td>
-<td>Add system fields in data result, <code>_keywords</code>, <code>_tags</code>, <code>_version</code>, <code>_created</code>, <code>_createdby</code>, <code>_mock</code></td>
+<td>Add system fields in data result. See <a href="#meta-fields">meta fields</a></td>
 </tr>
 <tr>
 <td>totals</td>
 <td></td>
-<td>Return data and total count. <a href="#data-result-paging">Data result paging</a></td>
+<td>Return data and paging meta data. See <a href="#data-result-paging">data result paging</a></td>
 </tr>
 <tr>
 <td>groupby</td>
@@ -603,7 +603,7 @@ curl -X GET <span class="se">\</span>
 
 <p>The example query URL below shows an example:</p>
 
-<p><code>https://sports-xf03.restdb.io/rest/companies??totals=true&amp;skip=10&amp;max=2</code></p>
+<p><code>GET https://sports-xf03.restdb.io/rest/companies?totals=true&amp;skip=10&amp;max=2</code></p>
 
 <blockquote>
 <p>Data result paging</p>
@@ -636,6 +636,8 @@ curl -X GET <span class="se">\</span>
 <p>bal bla</p>
 <h3 id='query-hints'>Query hints</h3>
 <p>bla bla hints</p>
+<h3 id='meta-fields'>Meta fields</h3>
+<p><code>_keywords</code>, <code>_tags</code>, <code>_version</code>, <code>_created</code>, <code>_createdby</code>, <code>_mock</code></p>
 <h2 id='post-resource'>POST resource</h2>
 <p>bla bla</p>
 <h3 id='data-payload'>Data payload</h3>
