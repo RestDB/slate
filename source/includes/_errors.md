@@ -11,7 +11,6 @@ Error Code | Meaning
 404 | Not Found -- The specified resource could not be found.
 405 | Method Not Allowed -- You tried to access a resource with an invalid method.
 406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The requested resource has been removed from our servers.
 418 | I'm a teapot.
 429 | Too Many Requests -- You're requesting too many API calls! Slow down!
 500 | Internal Server Error -- We had a problem with our server. Try again later.

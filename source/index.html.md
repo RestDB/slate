@@ -125,8 +125,8 @@ The [Restful](https://en.wikipedia.org/wiki/Representational_state_transfer) API
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl -X GET \
-  'https://sports-xf03.restdb.io/rest/companies?q={%22status%22:%20%22professional%22}' \
+curl -g -X GET \
+  'https://sports-xf03.restdb.io/rest/companies?q={"status":"professional"}' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -H 'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'
@@ -271,6 +271,61 @@ The example query URL below shows an example:
 }
 ```
 
+
+### Header values
+bal bla
+
+### Query hints
+
+Hint | Description
+---- | -----------
+`$fields` | Show or hide fields in the output data result set. E.g. `h={"$fields":{"title":1, "age": 0}`. Mixing values 0 and 1 are not allowed
+`$max` | Max records returnes by query. E.g. `h={"$max": 20}`
+`$skip` | Skip records. E.g. `h={"$skip": 100}`
+`$orderby` | Sort by field(s). E.g. `h={"$orderby": {"salary": 1, "age": -1}`
+`$groupby` | Group data by field(s). E.g. `h={"$groupby":["age", "position"}`
+`$aggregate` | Aggregate data by expression(s). `h={"$aggregate":["SUM:score"]}`
+
+
+### Meta fields
+The example query URL below show how metafields are return with the user data.
+
+`GET https://sports-xf03.restdb.io/rest/companies?&metafields=true`
+
+> Example output data with metafields:
+
+```json
+[
+  {
+        "_id": "5631d356f941f47900000110",
+        "name": "Nullam Suscipit Est Limited",
+        "address": "P.O. Box 460, 4937 Non, Street",
+        "city": "La Magdeleine",
+        "zip": "AX6 7KK",
+        "_keywords": [
+            "nullam",
+            "suscipit",
+            "est",
+            "limited",
+            "p",
+            "o",
+            "box",
+            "460",
+            "4937",
+            "non",
+            "street",
+            "la",
+            "magdeleine",
+            "ax6",
+            "7kk"
+        ],
+        "_tags": "nullam suscipit est limited p o box 460 4937 non street la magdeleine ax6 7kk",
+        "_version": 1,
+        "_created": "2015-10-29T08:05:41.947Z",
+        "_createdby": "jones@restdb.io"
+    }
+]
+```
 ## Query language
 bla bla
 
@@ -279,15 +334,6 @@ bla bla
 
 ### Aggregation
 bla bla
-
-### Header values
-bal bla
-
-### Query hints
-bla bla hints
-
-### Meta fields
-`_keywords`, `_tags`, `_version`, `_created`, `_createdby`, `_mock`
 
 
 ## POST resource
@@ -362,6 +408,10 @@ bla bla
 
 ## Handlebars
 bla bla
+
+```hbs
+I am {{variable}} in Handlebars template.
+```
 
 ## Variables
 bla bla
