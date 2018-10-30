@@ -250,10 +250,10 @@
                     <a href="#get-data-from-a-collection" class="toc-h2 toc-link" data-title="GET data from a collection">GET data from a collection</a>
                   </li>
                   <li>
-                    <a href="#post-resource" class="toc-h2 toc-link" data-title="POST resource">POST resource</a>
+                    <a href="#query-language" class="toc-h2 toc-link" data-title="Query language">Query language</a>
                   </li>
                   <li>
-                    <a href="#query-language" class="toc-h2 toc-link" data-title="Query language">Query language</a>
+                    <a href="#post-resource" class="toc-h2 toc-link" data-title="POST resource">POST resource</a>
                   </li>
               </ul>
           </li>
@@ -426,7 +426,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 <h1 id='database-collection-rest-api'>Database collection REST API</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
 <h2 id='get-data-from-a-collection'>GET data from a collection</h2>
-<p><code>GET https://&lt;mydatabase&gt;.restdb.io/rest/&lt;collection&gt;[?query parameters]</code></p>
+<p><code>GET https://{mydatabase}.restdb.io/rest/{collection}[?query parameters]</code></p>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl -X GET <span class="se">\</span>
   <span class="s1">'https://sports-xf03.restdb.io/rest/companies?q={%22status%22:%20%22professional%22}'</span> <span class="se">\</span>
@@ -491,11 +491,11 @@ curl -X GET <span class="se">\</span>
 </tr>
 </thead><tbody>
 <tr>
-<td>mydatabase</td>
+<td><code>{mydatabase}</code></td>
 <td>Your unique database name, e.g. <code>sports-xf03</code></td>
 </tr>
 <tr>
-<td>collection</td>
+<td><code>{collection}</code></td>
 <td>A unique collection name in your database, e.g. <code>players</code></td>
 </tr>
 </tbody></table>
@@ -606,7 +606,7 @@ curl -X GET <span class="se">\</span>
 <p><code>GET https://sports-xf03.restdb.io/rest/companies?totals=true&amp;skip=10&amp;max=2</code></p>
 
 <blockquote>
-<p>Data result paging</p>
+<p>Data result paging output example below:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -632,24 +632,58 @@ curl -X GET <span class="se">\</span>
         </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='header-values'>Header values</h3>
-<p>bal bla</p>
-<h3 id='query-hints'>Query hints</h3>
-<p>bla bla hints</p>
-<h3 id='meta-fields'>Meta fields</h3>
-<p><code>_keywords</code>, <code>_tags</code>, <code>_version</code>, <code>_created</code>, <code>_createdby</code>, <code>_mock</code></p>
-<h2 id='post-resource'>POST resource</h2>
-<p>bla bla</p>
-<h3 id='data-payload'>Data payload</h3>
-<p>bla bla</p>
-<h3 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h3>
-<p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
-<h2 id='query-language'>Query language</h2>
+</span></code></pre><h2 id='query-language'>Query language</h2>
 <p>bla bla</p>
 <h3 id='logic'>Logic</h3>
 <p>bla bla</p>
 <h3 id='aggregation'>Aggregation</h3>
 <p>bla bla</p>
+<h3 id='header-values'>Header values</h3>
+<p>bal bla</p>
+<h3 id='query-hints'>Query hints</h3>
+<p>bla bla hints</p>
+<h3 id='meta-fields'>Meta fields</h3>
+<p><code>_keywords</code>, <code>_tags</code>, <code>_version</code>, <code>_created</code>, <code>_createdby</code>, <code>_mock</code></p>
+
+<blockquote>
+<p>Example data with metafields:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f47900000110"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nullam Suscipit Est Limited"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P.O. Box 460, 4937 Non, Street"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Magdeleine"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AX6 7KK"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"nullam"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"suscipit"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"est"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"limited"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"p"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"o"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"box"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"460"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"4937"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"non"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"street"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"la"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"magdeleine"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ax6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"7kk"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"_tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nullam suscipit est limited p o box 460 4937 non street la magdeleine ax6 7kk"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-10-29T08:05:41.947Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_createdby"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jones@restdb.io"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h2 id='post-resource'>POST resource</h2>
+<p>bla bla</p>
+<h3 id='data-payload'>Data payload</h3>
+<p>bla bla</p>
+<h3 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h3>
+<p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
 <h1 id='real-time-api'>Real time API</h1>
 <p>bla bla</p>
 <h1 id='media-content-api'>Media Content API</h1>
