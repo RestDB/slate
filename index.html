@@ -428,8 +428,8 @@ curl <span class="s2">"api_endpoint_here"</span>
 <h2 id='get-data-from-a-collection'>GET data from a collection</h2>
 <p><code>GET https://{mydatabase}.restdb.io/rest/{collection}[?query parameters]</code></p>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl -X GET <span class="se">\</span>
-  <span class="s1">'https://sports-xf03.restdb.io/rest/companies?q={%22status%22:%20%22professional%22}'</span> <span class="se">\</span>
+curl -g -X GET <span class="se">\</span>
+  <span class="s1">'https://sports-xf03.restdb.io/rest/companies?q={"status":"professional"}'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
@@ -648,7 +648,7 @@ curl -X GET <span class="se">\</span>
 <p><code>GET https://sports-xf03.restdb.io/rest/companies?&amp;metafields=true</code></p>
 
 <blockquote>
-<p>Example data with metafields:</p>
+<p>Example output data with metafields:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
