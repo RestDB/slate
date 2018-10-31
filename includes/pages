@@ -1,0 +1,9 @@
+<h1 id='pages'>Pages</h1>
+<p>bla bla</p>
+<h2 id='handlebars'>Handlebars</h2>
+<p>bla bla</p>
+<pre class="highlight handlebars"><code>I am <span class="k">{{</span><span class="nv">variable</span><span class="k">}}</span> in Handlebars template.
+</code></pre><h2 id='variables'>Variables</h2>
+<p>bla bla</p>
+<h2 id='page-codehooks'>Page Codehooks</h2>
+<p>bla bla</p>

@@ -1,47 +1,4 @@
 <h1 id='media-content-api'>Media Content API</h1>
+<p>bla bla media</p>
+
 <p>Read more about media archive <a href="https://restdb.io/docs/media-archive">here</a>.</p>
-<h1 id='meta-data-api'>Meta Data API</h1><h1 id='mail-api'>Mail API</h1>
-<p>Read more <a href="https://restdb.io/docs/mail-api#restdb">about mail API here</a>.</p>
-<h1 id='javascript-api'>JavaScript API</h1>
-<p>bla bla</p>
-<h1 id='plugin-api'>Plugin API</h1>
-<p>bla bla</p>
-<h1 id='codehook-api'>Codehook API</h1>
-<p>bla bla</p>
-<h1 id='snapshot-api'>Snapshot API</h1>
-<p>bla bla</p>
-<h1 id='relations-in-data'>Relations in data</h1>
-<p>bla bla</p>
-<h2 id='lookups'>Lookups</h2>
-<p>bla bla</p>
-<h2 id='parent-child'>Parent child</h2>
-<p>bla bla</p>
-<h1 id='custom-routes'>Custom routes</h1>
-<p>bla bla</p>
-<h1 id='webhooks'>Webhooks</h1>
-<p>bla bla</p>
-<h1 id='application-settings'>Application settings</h1>
-<p>bla bla</p>
-<h2 id='caching'>Caching</h2>
-<p>bla bla</p>
-<h2 id='properties'>Properties</h2>
-<p>bla bla</p>
-<h1 id='pages'>Pages</h1>
-<p>bla bla</p>
-<h2 id='handlebars'>Handlebars</h2>
-<p>bla bla</p>
-<pre class="highlight handlebars"><code>I am <span class="k">{{</span><span class="nv">variable</span><span class="k">}}</span> in Handlebars template.
-</code></pre><h2 id='variables'>Variables</h2>
-<p>bla bla</p>
-<h2 id='page-codehooks'>Page Codehooks</h2>
-<p>bla bla</p>
-<h1 id='command-line-tool'>Command line tool</h1>
-<p>bla bla</p>
-<h1 id='debugging'>Debugging</h1>
-<p>bla bla</p>
-<h2 id='rest-inspector'>Rest inspector</h2>
-<p>bla bla</p>
-<h2 id='realtime-output'>Realtime output</h2>
-<p>bla bla</p>
-<h2 id='web-console'>Web console</h2>
-<p>bla bla</p>
