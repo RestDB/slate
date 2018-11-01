@@ -1,2 +1,25 @@
 <h1 id='custom-routes'>Custom routes</h1>
 <p>bla bla routes</p>
+<pre class="highlight javascript"><code><span class="c1">// #!/javascript</span>
+
+<span class="kr">const</span> <span class="nx">getData</span> <span class="o">=</span> <span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">db</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{</span><span class="na">$max</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">data</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">log</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">"Resolve"</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+                <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">log</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+                <span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+            <span class="p">}</span>    
+        <span class="p">})</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">onGET</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">ppl</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getData</span><span class="p">(</span><span class="s2">"/rest/people"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">loc</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getData</span><span class="p">(</span><span class="s2">"/rest/locations"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">comp</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getData</span><span class="p">(</span><span class="s2">"/rest/companies"</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">({</span><span class="na">text</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="na">people</span><span class="p">:</span> <span class="nx">ppl</span><span class="p">,</span> <span class="na">loc</span><span class="p">:</span> <span class="nx">loc</span><span class="p">,</span> <span class="na">corp</span><span class="p">:</span> <span class="nx">comp</span><span class="p">},</span> <span class="kc">null</span><span class="p">,</span> <span class="s1">'  '</span><span class="p">)});</span> 
+<span class="p">}</span>
+</code></pre>
