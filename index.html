@@ -601,12 +601,6 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 </tbody></table>
 <h3 id='data-result-paging'>Data result paging</h3>
-<p>Use the totals query parameter to retrieve data about totals, page size and page skipping.</p>
-
-<p>The example query URL below shows an example:</p>
-
-<p><code>GET https://sports-xf03.restdb.io/rest/companies?totals=true&amp;skip=10&amp;max=2</code></p>
-
 <blockquote>
 <p>Data result paging output example below:</p>
 </blockquote>
@@ -634,7 +628,13 @@ curl -g -X GET <span class="se">\</span>
         </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='header-values'>Header values</h3>
+</span></code></pre>
+<p>Use the totals query parameter to retrieve data about totals, page size and page skipping.</p>
+
+<p>The example query URL below shows an example:</p>
+
+<p><code>GET https://sports-xf03.restdb.io/rest/companies?totals=true&amp;skip=10&amp;max=2</code></p>
+<h3 id='header-values'>Header values</h3>
 <p>bal bla</p>
 <h3 id='query-hints'>Query hints</h3>
 <table><thead>
@@ -669,10 +669,6 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 </tbody></table>
 <h3 id='meta-fields'>Meta fields</h3>
-<p>The example query URL below show how metafields are return with the user data.</p>
-
-<p><code>GET https://sports-xf03.restdb.io/rest/companies?&amp;metafields=true</code></p>
-
 <blockquote>
 <p>Example output data with metafields:</p>
 </blockquote>
@@ -707,6 +703,10 @@ curl -g -X GET <span class="se">\</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+<p>The example query URL below show how metafields are return with the user data.</p>
+
+<p><code>GET https://sports-xf03.restdb.io/rest/companies?&amp;metafields=true</code></p>
+
 <table><thead>
 <tr>
 <th>Metafield</th>
