@@ -7,20 +7,15 @@
     </span><span class="s2">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyTemplate"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p>Will result in a JSON output like:
+[
+    {}, {}, {}
+]</p>
+</blockquote>
+
 <p><code>POST https://{mydatabase}.restdb.io/mail</code></p>
-<h3 id='request-parameters'>Request parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>body</td>
-<td>Send email <a href="sendmail-options">options</a></td>
-</tr>
-</tbody></table>
-<h3 id='sendmail-options'>Sendmail options</h3>
+<h3 id='request-body-options'>Request body options</h3>
 <table><thead>
 <tr>
 <th>Option</th>
@@ -34,6 +29,18 @@
 <tr>
 <td>subject</td>
 <td>Email subject text line</td>
+</tr>
+</tbody></table>
+<h3 id='response-array'>Response array</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>Send email <a href="sendmail-options">options</a></td>
 </tr>
 </tbody></table>
 
