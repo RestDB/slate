@@ -1,2 +1,6 @@
-<h1 id='mail-api'>Mail API</h1>
+<h1 id='mail-api'>Mail API</h1><pre class="highlight http tab-http"><code><span class="err">GET /mail
+{}
+
+blipp blopp
+</span></code></pre>
 <p>Read more <a href="https://restdb.io/docs/mail-api#restdb">about mail API here</a>.</p>
