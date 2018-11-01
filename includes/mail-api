@@ -1,17 +1,40 @@
-<h1 id='mail-api'>Mail API</h1><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">http://www.w3.org/pub/WWW/TheProject.html</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-</code></pre>
-<table>
-    <thead>
-        <th>One</th><th>Two</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>xxx</td><td>yyy</td>
-        </tr>
-        <tr>
-            <td>xxx</td><td>yyy</td>
-        </tr>
-    </tbody>
-</table>
+<h1 id='mail-api'>Mail API</h1><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">"jones@restdb.io"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subject"</span><span class="p">:</span><span class="s2">"Trigger email from you database"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"html"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Jones"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme Inc"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"sendername"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme support"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyTemplate"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='post-email-from-server'>POST email from server</h2>
+<p><code>POST https://{mydatabase}.restdb.io/mail</code></p>
+<h3 id='request-parameters'>Request parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>Send email <a href="sendmail-options">options</a></td>
+</tr>
+</tbody></table>
+<h3 id='sendmail-options'>Sendmail options</h3>
+<table><thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>to</td>
+<td>One valid receiver email address</td>
+</tr>
+<tr>
+<td>subject</td>
+<td>Email subject text line</td>
+</tr>
+</tbody></table>
 
 <p>Read more <a href="https://restdb.io/docs/mail-api#restdb">about mail API here</a>.</p>
