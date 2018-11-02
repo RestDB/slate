@@ -261,7 +261,7 @@
             <a href="#mail-api" class="toc-h1 toc-link" data-title="Mail API">Mail API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#post-email-from-server" class="toc-h2 toc-link" data-title="POST email from server">POST email from server</a>
+                    <a href="#send-an-email" class="toc-h2 toc-link" data-title="Send an email">Send an email</a>
                   </li>
               </ul>
           </li>
@@ -763,7 +763,7 @@ curl -g -X GET <span class="se">\</span>
 <p>bla bla</p>
 <h3 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h3>
 <p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
-<h1 id='mail-api'>Mail API</h1><h2 id='post-email-from-server'>POST email from server</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h1 id='mail-api'>Mail API</h1><h2 id='send-an-email'>Send an email</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">"jones@restdb.io"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subject"</span><span class="p">:</span><span class="s2">"Trigger email from you database"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"html"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Jones"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">},</span><span class="w"> 
@@ -773,14 +773,14 @@ curl -g -X GET <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Will result in a JSON output like:</p>
+<p>Will result in a JSON output JSON:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{},</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span></code></pre><h3 id='http-request'>HTTP REQUEST</h3>
 <p><code>POST https://{mydatabase}.restdb.io/mail</code></p>
-<h3 id='request-body-options'>Request body options</h3>
+<h3 id='arguments'>ARGUMENTS</h3>
 <table><thead>
 <tr>
 <th>Option</th>
