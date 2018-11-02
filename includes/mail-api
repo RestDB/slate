@@ -140,6 +140,6 @@ You can add your own accounts for Mailgun or Gmail.</p>
 </span></code></pre>
 <p><code>GET https://devdemo-ff5b.restdb.io/rest/email_outbound</code></p>
 <h2 id='get-one-sent-email'>Get one sent email</h2>
-<p><code>GET https://devdemo-ff5b.restdb.io/rest/email_outbound/5bdc50a874ae8c710000dd16</code></p>
+<p><code>GET https://devdemo-ff5b.restdb.io/rest/email_outbound/{ID}</code></p>
 
 <p>Read more <a href="https://restdb.io/docs/mail-api#restdb">about mail API here</a>.</p>
