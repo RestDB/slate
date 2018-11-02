@@ -16,9 +16,8 @@ You can add your own accounts for Mailgun or Gmail.</p>
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="s1">'https://devdemo-ff5b.restdb.io/mail'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> 
-   <span class="p">{</span> <span class="s1">'Postman-Token'</span><span class="p">:</span> <span class="s1">'c8b27b46-8521-47f2-85aa-a06019534ec4'</span><span class="p">,</span>
-     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
-     <span class="s1">'x-apikey'</span><span class="p">:</span> <span class="s1">'ae91954d1e61ea4d6eccb4159744ca0511078'</span><span class="p">,</span>
+   <span class="p">{</span> <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'x-apikey'</span><span class="p">:</span> <span class="s1">'xxxxx'</span><span class="p">,</span>
      <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span> <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> 
    <span class="p">{</span> <span class="na">to</span><span class="p">:</span> <span class="s1">'jones@restdb.io'</span><span class="p">,</span>
