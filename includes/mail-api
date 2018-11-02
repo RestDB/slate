@@ -1,4 +1,7 @@
-<h1 id='mail-api'>Mail API</h1><h2 id='send-an-email'>Send an email</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h1 id='mail-api'>Mail API</h1>
+<p>REST endpoint for sending emails. Email sending is relayed through Mailgun or Gmail APIs.
+You can add your own accounts for Mailgun or Gmail.</p>
+<h2 id='send-an-email'>Send an email</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">"jones@restdb.io"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subject"</span><span class="p">:</span><span class="s2">"Trigger email from you database"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"html"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Jones"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">},</span><span class="w"> 
