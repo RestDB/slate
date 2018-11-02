@@ -122,5 +122,24 @@ You can add your own accounts for Mailgun or Gmail.</p>
 <td>A Page name with the template html content</td>
 </tr>
 </tbody></table>
+<h2 id='list-sent-emails'>List sent emails</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5bdc50a874ae8c710000dd16"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jones@restdb.io"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transport"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restdb_mailer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-reply@mg.restdb.ws"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trigger email from you database"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unsubscribelink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_dbname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"devdemo-ff5b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"track"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5bdc50a874ae8c710000dd16"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello email world!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking-status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-02T13:32:16.633Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>GET https://devdemo-ff5b.restdb.io/rest/email_outbound</code></p>
+<h2 id='get-one-sent-email'>Get one sent email</h2>
+<p><code>GET https://devdemo-ff5b.restdb.io/rest/email_outbound/5bdc50a874ae8c710000dd16</code></p>
 
 <p>Read more <a href="https://restdb.io/docs/mail-api#restdb">about mail API here</a>.</p>
