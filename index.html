@@ -766,15 +766,37 @@ curl -g -X GET <span class="se">\</span>
 <h1 id='mail-api'>Mail API</h1>
 <p>REST endpoint for sending emails. Email sending is relayed through Mailgun or Gmail APIs.
 You can add your own accounts for Mailgun or Gmail.</p>
-<h2 id='send-an-email'>Send an email</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">"jones@restdb.io"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"subject"</span><span class="p">:</span><span class="s2">"Trigger email from you database"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"html"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Jones"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">},</span><span class="w"> 
-    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme Inc"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"sendername"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme support"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyTemplate"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h2 id='send-an-email'>Send an email</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://devdemo-ff5b.restdb.io/mail <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'x-apikey: xxxxxxxxx'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "to":"jones@restdb.io",
+    "subject":"Trigger email from you database", 
+    "html": "Hello email world!"
+}'</span>
+</code></pre><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://devdemo-ff5b.restdb.io/mail'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="s1">'Postman-Token'</span><span class="p">:</span> <span class="s1">'c8b27b46-8521-47f2-85aa-a06019534ec4'</span><span class="p">,</span>
+     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'x-apikey'</span><span class="p">:</span> <span class="s1">'ae91954d1e61ea4d6eccb4159744ca0511078'</span><span class="p">,</span>
+     <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span> <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="na">to</span><span class="p">:</span> <span class="s1">'jones@restdb.io'</span><span class="p">,</span>
+     <span class="na">subject</span><span class="p">:</span> <span class="s1">'Trigger email from you database'</span><span class="p">,</span>
+     <span class="na">html</span><span class="p">:</span> <span class="s1">'Hello email world!'</span> <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
 <blockquote>
 <p>Response (201)</p>
 </blockquote>
