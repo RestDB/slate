@@ -30,6 +30,26 @@ You can add your own accounts for Mailgun or Gmail.</p>
 
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
 <span class="p">});</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">HttpResponse</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="n">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://devdemo-ff5b.restdb.io/mail"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"x-apikey"</span><span class="o">,</span> <span class="s">"xxxxx"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="s">"{\n    \"to\":\"jones@restdb.io\",\n    \"subject\":\"Trigger email from you database\", \n    \"html\": \"Hello email world!\"\n}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
+</code></pre><pre class="highlight python tab-python"><code>  <span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://devdemo-ff5b.restdb.io/mail"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">to</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">jones@restdb.io</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">subject</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">Trigger email from you database</span><span class="se">\"</span><span class="s">, </span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">html</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Hello email world!</span><span class="se">\"\n</span><span class="s">}"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
+    <span class="s">'x-apikey'</span><span class="p">:</span> <span class="s">"xxxxx"</span><span class="p">,</span>
+    <span class="s">'cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span>
+    <span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>Response (201)</p>
