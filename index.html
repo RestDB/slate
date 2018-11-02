@@ -778,9 +778,14 @@ You can add your own accounts for Mailgun or Gmail.</p>
 <blockquote>
 <p>Response (201)</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{},</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"email_outbound_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5bdc50a874ae8c710000dd16"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"warning"</span><span class="p">:</span><span class="w"> </span><span class="s2">"For development plan: Max 2 emails in arrays, no templates, no Gmail transport. Upgrade plan for these features."</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>HTTP REQUEST</strong></p>
 
