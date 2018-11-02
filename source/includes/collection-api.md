@@ -5,7 +5,7 @@ The [Restful](https://en.wikipedia.org/wiki/Representational_state_transfer) API
 
 ## GET data from a collection
 
-`GET https://{mydatabase}.restdb.io/rest/{collection}[?query parameters]`
+`GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}[?query parameters]`
 
 
 ```shell
@@ -96,6 +96,7 @@ Parameter | Description
 --------- | -----------
 `{mydatabase}` | Your unique database name, e.g. `sports-xf03`
 `{collection}` | A unique collection name in your database, e.g. `players`
+`{ID}` <small>optional</small> | A unique document ID, e.g. `570e052d98290e490000006e`
 
 ### Query Parameters
 
@@ -121,12 +122,6 @@ fetchchildren || child data
 format || .js or .html
 
 ### Data result paging
-Use the totals query parameter to retrieve data about totals, page size and page skipping.
-
-The example query URL below shows an example:
-
-`GET https://sports-xf03.restdb.io/rest/companies?totals=true&skip=10&max=2`
-
 > Data result paging output example below:
 
 ```json
@@ -156,6 +151,13 @@ The example query URL below shows an example:
 }
 ```
 
+Use the totals query parameter to retrieve data about totals, page size and page skipping.
+
+The example query URL below shows an example:
+
+`GET https://sports-xf03.restdb.io/rest/companies?totals=true&skip=10&max=2`
+
+
 
 ### Header values
 bal bla
@@ -173,10 +175,6 @@ Hint | Description
 
 
 ### Meta fields
-The example query URL below show how metafields are return with the user data.
-
-`GET https://sports-xf03.restdb.io/rest/companies?&metafields=true`
-
 > Example output data with metafields:
 
 ```json
@@ -211,6 +209,12 @@ The example query URL below show how metafields are return with the user data.
     }
 ]
 ```
+
+The example query URL below show how metafields are return with the user data.
+
+`GET https://sports-xf03.restdb.io/rest/companies?&metafields=true`
+
+
 
 Metafield | Description
 ---- | -----------
