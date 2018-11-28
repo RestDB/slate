@@ -23,8 +23,8 @@ curl -k -i -H <span class="s2">"Content-Type: application/json"</span><span clas
 
 <p><img src="https://ras-blogdb.restdb.io/media/5bfe8b971c8eea7400002e95" alt="admin dashboard" /></p>
 
-<aside class="notice">
-For security reasons, only HTTPS is allowed for connecting to your database.
+<aside class="warning">
+For security reasons, only HTTPS is allowed for connecting to your database API.
 </aside>
 <h2 id='cors-api-keys'>CORS API keys</h2>
 <p>bla bla bla.</p>
