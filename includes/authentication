@@ -7,10 +7,8 @@
 <li><strong>API key</strong> as a HTTP header field, e.g. <code>x-apikey=xxxxx</code></li>
 </ul>
 
-<p>You can also authenticate with a Auth0 / JWT token to identify users, read docs here.</p>
-
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Example code for an authenticated API call:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl -k -i -H <span class="s2">"Content-Type: application/json"</span><span class="se">\</span>
@@ -18,17 +16,15 @@ curl -k -i -H <span class="s2">"Content-Type: application/json"</span><span clas
  -X GET <span class="s1">'https://devdemo-ff5b.restdb.io/rest/people'</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>MY-API-KEY-HERE</code> with your API key.</p>
+<p>Make sure to replace <code>MY-API-KEY-HERE</code> with your actual API key.</p>
 </blockquote>
 
-<p>RestDB uses API keys to allow access to the API. You can register a new API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>You can create your API keys on the admin dashboard of your database, shown in the example screenshot below.</p>
 
-<p>RestDB expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>x-apikey: MY-API-KEY-HERE</code></p>
+<p><img src="https://ras-blogdb.restdb.io/media/5bfe8b971c8eea7400002e95" alt="admin dashboard" /></p>
 
 <aside class="notice">
-You must replace <code>MY-API-KEY-HERE</code> with your personal API key.
+For security reasons, only HTTPS is allowed for connecting to your database.
 </aside>
 <h2 id='cors-api-keys'>CORS API keys</h2>
 <p>bla bla bla.</p>
