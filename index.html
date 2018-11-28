@@ -365,7 +365,10 @@
         <h1 id='introduction'>Introduction</h1>
 <p>This is the RestDB developer documentation and API reference.</p>
 <h1 id='authentication'>Authentication</h1>
-<p>API calls against your database REST API must be authenticated. Authentication can be done with an API key or a JWT token. Either as a query parameter (<code>?apikey=xxxxx</code>) or as a HTTP header field (<code>x-apikey=xxxxx</code>). </p>
+<p>API calls against your database REST API must be authenticated. Authentication can be done with one of the following methods:
+* <strong>JWT token</strong> as a HTTP header field, <code>Authorization=Bearer xxxxx</code>
+* <strong>API key</strong> as a query parameter, e.g. <code>?apikey=xxxxx</code>
+* <strong>API key</strong> as a HTTP header field, e.g. <code>x-apikey=xxxxx</code></p>
 
 <p>You can also authenticate with a Auth0 / JWT token to identify users, read docs here.</p>
 
