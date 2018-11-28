@@ -1,8 +1,11 @@
 <h1 id='authentication'>Authentication</h1>
-<p>API calls against your database REST API must be authenticated. Authentication can be done with one of the following methods:
-* <strong>JWT token</strong> as a HTTP header field, <code>Authorization=Bearer xxxxx</code>
-* <strong>API key</strong> as a query parameter, e.g. <code>?apikey=xxxxx</code>
-* <strong>API key</strong> as a HTTP header field, e.g. <code>x-apikey=xxxxx</code></p>
+<p>API calls against your database REST API must be authenticated. Authentication can be done with one of the following methods:</p>
+
+<ul>
+<li><strong>JWT token</strong> as a HTTP header field, <code>Authorization=Bearer xxxxx</code></li>
+<li><strong>API key</strong> as a query parameter, e.g. <code>?apikey=xxxxx</code></li>
+<li><strong>API key</strong> as a HTTP header field, e.g. <code>x-apikey=xxxxx</code></li>
+</ul>
 
 <p>You can also authenticate with a Auth0 / JWT token to identify users, read docs here.</p>
 
