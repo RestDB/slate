@@ -1,54 +1,28 @@
 # Authentication
+API calls against your database REST API must be authenticated. Authentication can be done with one of the following methods:
 
-> To authorize, use this code:
+* **JWT token** as a HTTP header field, `Authorization=Bearer xxxxx`
+* **API key** as a query parameter, e.g. `?apikey=xxxxx`
+* **API key** as a HTTP header field, e.g. `x-apikey=xxxxx`
 
-```java
-require 'axios'
 
-api = Kittn::APIClient.authorize!('MY-API-KEY-HERE')
-```
-
-```python
-
-api = kittn.authorize('MY-API-KEY-HERE')
-```
+> Example code for an authenticated API call:
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "x-apikey: MY-API-KEY-HERE"
+curl -k -i -H "Content-Type: application/json"\
+ -H "x-apikey: MY-API-KEY-HERE"\
+ -X GET 'https://{mydatabase}.restdb.io/rest/people'
 ```
 
-```javascript
-const kittn = require('kittn');
+> Make sure to replace `MY-API-KEY-HERE` with your actual API key.
 
-let api = kittn.authorize('MY-API-KEY-HERE');
-```
+You can create your API keys on the admin dashboard of your database, shown in the example screenshot below.
 
-```swift
-import Foundation
+![admin dashboard](https://ras-blogdb.restdb.io/media/5bfe8b971c8eea7400002e95)
 
-let headers = [
-"content-type": "application/json",
-"x-apikey": "560bd47058e7ab1b2648f4e7",
-"cache-control": "no-cache"
-]
-
-let request = NSMutableURLRequest(url: NSURL(string: "https://inventory-fac4.restdb.io/rest/motorbikes")! as URL,
-                                        cachePolicy: .useProtocolCachePolicy,
-                                        timeoutInterval: 10.0)
-```
-
-> Make sure to replace `MY-API-KEY-HERE` with your API key.
-
-RestDB uses API keys to allow access to the API. You can register a new API key at our [developer portal](http://example.com/developers).
-
-RestDB expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`x-apikey: MY-API-KEY-HERE`
-
-<aside class="notice">
-You must replace <code>MY-API-KEY-HERE</code> with your personal API key.
+<aside class="warning">
+For security reasons, only HTTPS is allowed for connecting to your database API.
 </aside>
 
 
@@ -57,23 +31,9 @@ bla bla bla.
 
 > CORS code:
 
-```csharp
-let cors = charpcode;
-```
-> Some code annotation goes here.
-
-```python
-api = kittn.authorize('MY-API-KEY-HERE')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: MY-API-KEY-HERE"
-```
 
 ```javascript
-let api = kittn.authorize('MY-API-KEY-HERE');
+// Call API from a web browser requires a CORS enabled API key
 ```
 > CORS is fun.
 
@@ -82,6 +42,33 @@ bla bla bla
 
 ## Auth0 integration
 bla bla bla
+
+## Users and secure tokens API  
+
+
+**HTTP REQUEST**
+
+```shell
+bin bash
+```
+
+> Example output
+```json
+{
+  "data": "value"
+}
+```
+
+`POST https://{mydatabase}.restdb.io/auth/token`
+
+The `POST` body Request body can be an access token or JWT token.
+
+**ARGUMENTS**
+
+Parameter | Type | Required | Description
+--------- | ---- | -------- | -----------
+code | String | Optional | your access code
+refresh | String | Optional | Your JWT token
 
 <aside class="warning">
 *HTTPS is required. The restdb.io database REST API only responds to encrypted traffic so that your data remains safe. All API traffic must have a valid apikey or a JWT token.
