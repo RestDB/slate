@@ -16,6 +16,8 @@ Edit markdown under source/includes
 
 Run ./deploy.sh
 
+Check build directory for html output.
+
 Features
 ------------
 
