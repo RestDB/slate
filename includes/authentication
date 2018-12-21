@@ -31,7 +31,7 @@ For security reasons, only HTTPS is allowed for connecting to your database API.
 
 <p>You can manage your API-keys unders settings/API.</p>
 
-<p><img src="https://ras-blogdb.restdb.io/media/5603c3353c55510300000004?s=o" alt="CORS settings" /></p>
+<p><img src="https://ras-blogdb.restdb.io/media/5603c3353c55510300000004?s=w" alt="CORS settings" /></p>
 
 <blockquote>
 <p>Ajax call via CORS:</p>
