@@ -424,7 +424,53 @@ For security reasons, only HTTPS is allowed for connecting to your database API.
 <p>You can manage your API-keys unders the Settings/API tab.</p>
 
 <p><img src="https://ras-blogdb.restdb.io/media/5603c3353c55510300000004?s=w" alt="CORS settings" /></p>
-<h2 id='auth0-com-jwt-tokens'>Auth0.com JWT tokens</h2>
+<h2 id='auth0-com-jwt-tokens'>Auth0.com JWT tokens</h2><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">AUTH0_CLIENT_ID</span><span class="o">=</span><span class="s1">'xxx'</span><span class="p">;</span> 
+<span class="kd">var</span> <span class="nx">AUTH0_DOMAIN</span><span class="o">=</span><span class="s1">'xxx'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">AUTH0_CALLBACK_URL</span><span class="o">=</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
+
+<span class="c1">// invoke the lock component</span>
+<span class="kd">var</span> <span class="nx">lock</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Auth0Lock</span><span class="p">(</span><span class="nx">AUTH0_CLIENT_ID</span><span class="p">,</span> <span class="nx">AUTH0_DOMAIN</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">auth</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">scope</span><span class="p">:</span> <span class="s1">'openid email'</span> <span class="p">}</span> <span class="c1">//Details: https://auth0.com/docs/scopes</span>
+    <span class="p">},</span>
+    <span class="na">rememberLastLogin</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">});</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.btn-login'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="nx">lock</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+  <span class="p">});</span>
+
+  <span class="nx">lock</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"authenticated"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">authResult</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">lock</span><span class="p">.</span><span class="nx">getProfile</span><span class="p">(</span><span class="nx">authResult</span><span class="p">.</span><span class="nx">idToken</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">profile</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s2">"Unable to authenticate!"</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">'id_token'</span><span class="p">,</span> <span class="nx">authResult</span><span class="p">.</span><span class="nx">idToken</span><span class="p">);</span>
+        <span class="c1">// Display user information</span>
+        <span class="nx">show_profile_info</span><span class="p">(</span><span class="nx">profile</span><span class="p">);</span>
+        <span class="c1">// enable api button</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'.btn-api'</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">"disabled"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">"Press me, I'm authenticated!"</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+<span class="c1">// We use the token from Auth0 to authenticate API calls against restdb.io databases</span>
+<span class="c1">// by setting the Authorization header using the Bearer token scheme.</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'.btn-api'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://websitedemo-4db9.restdb.io/rest/items?max=4"</span><span class="p">,{</span>
+    <span class="na">headers</span><span class="p">:{</span>
+        <span class="s1">'Authorization'</span><span class="p">:</span><span class="s1">'Bearer '</span> <span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">"id_token"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="o">=&gt;</span><span class="p">{</span>
+        <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">body</span><span class="o">=&gt;</span><span class="p">{</span>
+         <span class="nx">$</span><span class="p">(</span><span class="s1">'#apidata'</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s1">'  '</span><span class="p">));</span>
+    <span class="p">});</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="p">});</span>
+</code></pre>
 <p>RestDB supports direct integration with the auth0.com authentication service. JWT (<a href="https://jwt.io/">JSON Web Token</a>) are signed with your Auth0 secret and verified by RestDB using the same secret.</p>
 
 <p>You can manage the Auth0.com secret under Settings/Authentication</p>
