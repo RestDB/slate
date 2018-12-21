@@ -125,15 +125,13 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example output
-<code>json
-{
-    &quot;jwt&quot;: &quot;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvZ21haWwucmVhZG9ubHkiLCJpYXQiOjE1NDUzODc0MjEsImV4cCI6MTU0NTM5MTAyMSwiYXVkIiaiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiaXNzIjoic2VydmVyQG1haWxlci0xMjI4LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiamJlZWpvbmVzQGdtYWlsLmNvbSIsImp0aSI6IlpHVjJaR1Z0YnkxbVpqVmlMbWR2YjJkc1pTNXdjbWwyWVhSbFgydGxlUzgzT0RrMU5tTTNZVEl6TmpFMFl6UmpZamszTldFNU1XTTFZakpqTTJGbE9BPT0ifQ.OWce6QLpAYlfMeWk4vm9wAqWv_Str5frfVhyP6u22Ac9206kJnpkiJI2fcmXq3DeFdqfYqEOKCMzxON1VK8pxxeQx3C3qaQjjRBJgmdwtPGz2v4n5EuVCm2w8cgh4HjkmPHrghJLSBLDzJbLpuJhQ9TLyyqjyak9hYtLh0VHFrtqXN2eLnEvowYh_vK9C2Io2UxUthPeP5WD-mAMxQr9CRXHY7XuHg-qCn0cVkRNh2MceN0zWZGa0i23jNNXjcYdE_S358WeSJh5upugPTY2MNpDqYQgt6MnpTXwin4-6uVyJADq26IU9L29v0z9yKWefzRT_rYqcnnlnxP5t2jEXw&quot;,
-    &quot;refresh&quot;: &quot;471fb1ce725967751d8d8284f1e795f94c301bfc9849590b7000064256a7b85b&quot;
-}
-</code></p>
+<p>Example output</p>
 </blockquote>
-
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"jwt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvZ21haWwucmVhZG9ubHkiLCJpYXQiOjE1NDUzODc0MjEsImV4cCI6MTU0NTM5MTAyMSwiYXVkIiaiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiaXNzIjoic2VydmVyQG1haWxlci0xMjI4LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiamJlZWpvbmVzQGdtYWlsLmNvbSIsImp0aSI6IlpHVjJaR1Z0YnkxbVpqVmlMbWR2YjJkc1pTNXdjbWwyWVhSbFgydGxlUzgzT0RrMU5tTTNZVEl6TmpFMFl6UmpZamszTldFNU1XTTFZakpqTTJGbE9BPT0ifQ.OWce6QLpAYlfMeWk4vm9wAqWv_Str5frfVhyP6u22Ac9206kJnpkiJI2fcmXq3DeFdqfYqEOKCMzxON1VK8pxxeQx3C3qaQjjRBJgmdwtPGz2v4n5EuVCm2w8cgh4HjkmPHrghJLSBLDzJbLpuJhQ9TLyyqjyak9hYtLh0VHFrtqXN2eLnEvowYh_vK9C2Io2UxUthPeP5WD-mAMxQr9CRXHY7XuHg-qCn0cVkRNh2MceN0zWZGa0i23jNNXjcYdE_S358WeSJh5upugPTY2MNpDqYQgt6MnpTXwin4-6uVyJADq26IU9L29v0z9yKWefzRT_rYqcnnlnxP5t2jEXw"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"refresh"</span><span class="p">:</span><span class="w"> </span><span class="s2">"471fb1ce725967751d8d8284f1e795f94c301bfc9849590b7000064256a7b85b"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p><code>POST https://{mydatabase}.restdb.io/auth/jwt</code></p>
 
 <p>The <code>POST</code> body Request body contains JWT settings and claims.</p>
