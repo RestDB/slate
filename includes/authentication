@@ -24,10 +24,6 @@ curl -k -i -H <span class="s2">"Content-Type: application/json"</span><span clas
 <p>You can create your API keys on the admin dashboard of your database, shown in the example screenshot below.</p>
 
 <p><img src="https://ras-blogdb.restdb.io/media/5bfe8b971c8eea7400002e95" alt="admin dashboard" /></p>
-
-<aside class="warning">
-For security reasons, only HTTPS is allowed for connecting to your database API.
-</aside>
 <h2 id='cors-api-keys'>CORS API keys</h2>
 <blockquote>
 <p>Ajax call via CORS:</p>
@@ -113,22 +109,34 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <p><img src="https://ras-blogdb.restdb.io/media/5c04e23f587d725400000745?s=w" alt="Auth0.com secret" /></p>
 
 <p><a href="https://restdb.io/blog/57cece1a2d5dbc27000000d3">Blog post with a complete demo application here.</a></p>
-<h2 id='users-and-secure-tokens-api'>Users and secure tokens API</h2>
+<h2 id='custom-jwt'>Custom JWT</h2>
 <p><strong>HTTP REQUEST</strong></p>
-<pre class="highlight shell tab-shell"><code>bin bash
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google.private_key"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"algorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RS256"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"server@xxx-yyy.iam.gserviceaccount.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audience"</span><span class="p">:</span><span class="s2">"https://www.googleapis.com/oauth2/v4/token"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiresIn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1h"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"scope"</span><span class="p">:</span><span class="s2">"https://www.googleapis.com/auth/gmail.readonly"</span><span class="w">
+
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <blockquote>
 <p>Example output
 <code>json
 {
-  &quot;data&quot;: &quot;value&quot;
+    &quot;jwt&quot;: &quot;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvZ21haWwucmVhZG9ubHkiLCJpYXQiOjE1NDUzODc0MjEsImV4cCI6MTU0NTM5MTAyMSwiYXVkIiaiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiaXNzIjoic2VydmVyQG1haWxlci0xMjI4LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiamJlZWpvbmVzQGdtYWlsLmNvbSIsImp0aSI6IlpHVjJaR1Z0YnkxbVpqVmlMbWR2YjJkc1pTNXdjbWwyWVhSbFgydGxlUzgzT0RrMU5tTTNZVEl6TmpFMFl6UmpZamszTldFNU1XTTFZakpqTTJGbE9BPT0ifQ.OWce6QLpAYlfMeWk4vm9wAqWv_Str5frfVhyP6u22Ac9206kJnpkiJI2fcmXq3DeFdqfYqEOKCMzxON1VK8pxxeQx3C3qaQjjRBJgmdwtPGz2v4n5EuVCm2w8cgh4HjkmPHrghJLSBLDzJbLpuJhQ9TLyyqjyak9hYtLh0VHFrtqXN2eLnEvowYh_vK9C2Io2UxUthPeP5WD-mAMxQr9CRXHY7XuHg-qCn0cVkRNh2MceN0zWZGa0i23jNNXjcYdE_S358WeSJh5upugPTY2MNpDqYQgt6MnpTXwin4-6uVyJADq26IU9L29v0z9yKWefzRT_rYqcnnlnxP5t2jEXw&quot;,
+    &quot;refresh&quot;: &quot;471fb1ce725967751d8d8284f1e795f94c301bfc9849590b7000064256a7b85b&quot;
 }
 </code></p>
 </blockquote>
 
-<p><code>POST https://{mydatabase}.restdb.io/auth/token</code></p>
+<p><code>POST https://{mydatabase}.restdb.io/auth/jwt</code></p>
 
-<p>The <code>POST</code> body Request body can be an access token or JWT token.</p>
+<p>The <code>POST</code> body Request body contains JWT settings and claims.</p>
 
 <p><strong>ARGUMENTS</strong></p>
 
@@ -141,16 +149,16 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 </tr>
 </thead><tbody>
 <tr>
-<td><code>code</code></td>
+<td><code>secret</code></td>
 <td><code>string</code></td>
-<td>Optional</td>
-<td>Your access code</td>
+<td>Mandatory</td>
+<td>Path to settings property</td>
 </tr>
 <tr>
-<td><code>refresh</code></td>
+<td><code>algorithm</code></td>
 <td><code>string</code></td>
 <td>Optional</td>
-<td>Your JWT token</td>
+<td>Hash algo</td>
 </tr>
 </tbody></table>
 
