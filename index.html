@@ -471,13 +471,15 @@ For security reasons, only HTTPS is allowed for connecting to your database API.
     <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
   <span class="p">});</span>
 </code></pre>
-<p>RestDB supports direct integration with the auth0.com authentication service. JWT (<a href="https://jwt.io/">JSON Web Token</a>) are signed with your Auth0 secret and verified by RestDB using the same secret.</p>
+<p>RestDB supports direct integration with the auth0.com authentication service. JWT (<a href="https://jwt.io/">JSON Web Token</a>) are signed with your Auth0 secret and verified by RestDB using the same secret.
+Auth0.com lets you add a multitude of authentication schemes to your app.
+<img src="https://ras-blogdb.restdb.io/media/57d1327a791a484c000001d2?s=o&amp;key=327688688052565719837" alt="Auth0.com lock component" /></p>
 
-<p>You can manage the Auth0.com secret under Settings/Authentication</p>
+<p>You can manage the Auth0.com integration and settions under Settings/Authentication.</p>
 
 <p><img src="https://ras-blogdb.restdb.io/media/5c04e23f587d725400000745?s=w" alt="Auth0.com secret" /></p>
 
-<p><a href="https://restdb.io/blog/57cece1a2d5dbc27000000d3">BLog post with a complete demo application here.</a></p>
+<p><a href="https://restdb.io/blog/57cece1a2d5dbc27000000d3">Blog post with a complete demo application here.</a></p>
 <h2 id='users-and-secure-tokens-api'>Users and secure tokens API</h2>
 <p><strong>HTTP REQUEST</strong></p>
 <pre class="highlight shell tab-shell"><code>bin bash
