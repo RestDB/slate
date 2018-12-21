@@ -2,9 +2,9 @@
 <p>API calls against your database REST API must be authenticated. Authentication can be done with one of the following methods:</p>
 
 <ul>
-<li><strong>JWT token</strong> as a HTTP header field, <code>Authorization=Bearer xxxxx</code></li>
 <li><strong>API key</strong> as a query parameter, e.g. <code>?apikey=xxxxx</code></li>
 <li><strong>API key</strong> as a HTTP header field, e.g. <code>x-apikey=xxxxx</code></li>
+<li><strong>Signed JWT token</strong> as a HTTP header field, <code>Authorization=Bearer xxxxx</code></li>
 </ul>
 
 <blockquote>
@@ -69,14 +69,14 @@ For security reasons, only HTTPS is allowed for connecting to your database API.
 </tr>
 </thead><tbody>
 <tr>
-<td>code</td>
-<td>String</td>
+<td><code>code</code></td>
+<td><code>string</code></td>
 <td>Optional</td>
-<td>your access code</td>
+<td>Your access code</td>
 </tr>
 <tr>
-<td>refresh</td>
-<td>String</td>
+<td><code>refresh</code></td>
+<td><code>string</code></td>
 <td>Optional</td>
 <td>Your JWT token</td>
 </tr>
