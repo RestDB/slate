@@ -396,17 +396,37 @@ curl -k -i -H <span class="s2">"Content-Type: application/json"</span><span clas
 For security reasons, only HTTPS is allowed for connecting to your database API.
 </aside>
 <h2 id='cors-api-keys'>CORS API keys</h2>
-<p>bla bla bla.</p>
+<p>To connect to your database from a web page, a valid Ajax call with CORS must be done. CORS (cross-origin resource sharing) manages cross-origin requests. A CORS enabled API-key controls who can access the database and valid HTTP verbs agaists a data resource, i.e. GET, POST, PUT, PATCH, DELETE.</p>
+
+<p>You can manage your API-keys unders settings/API.</p>
+
+<p><img src="https://ras-blogdb.restdb.io/media/5603c3353c55510300000004?s=o" alt="CORS settings" /></p>
 
 <blockquote>
-<p>CORS code:</p>
+<p>Ajax call via CORS:</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">// Call API from a web browser requires a CORS enabled API key</span>
-</code></pre>
-<blockquote>
-<p>CORS is fun.</p>
-</blockquote>
-<h2 id='jwt-tokens'>JWT tokens</h2>
+<span class="kd">var</span> <span class="nx">myCorsApiKey</span> <span class="o">=</span> <span class="s2">"{MY-CORS-API-KEY-HERE}"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://{mydatabase}.restdb.io/rest/people"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"x-apikey"</span><span class="p">,</span> <span class="nx">myCorsApiKey</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+
+
+</code></pre><h2 id='jwt-tokens'>JWT tokens</h2>
 <p>bla bla bla</p>
 <h2 id='auth0-integration'>Auth0 integration</h2>
 <p>bla bla bla</p>
