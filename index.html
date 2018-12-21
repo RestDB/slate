@@ -366,13 +366,7 @@
 <p>This is the RestDB developer documentation and API reference.
 RestDB.io is an online NoSQL database designed for speed and simplicity. A small but smart feature set gives you powerful building blocks for creating business application backends (backoffice), dynamic web content and API centric solutions.</p>
 <h1 id='authentication'>Authentication</h1>
-<p>API calls against your database REST API must be authenticated. Authentication can be done with one of the following methods:</p>
-
-<ul>
-<li><strong>API key</strong> as a query parameter, e.g. <code>?apikey=xxxxx</code></li>
-<li><strong>API key</strong> as a HTTP header field, e.g. <code>x-apikey=xxxxx</code></li>
-<li><strong>Signed JWT token</strong> as a HTTP header field, <code>Authorization=Bearer xxxxx</code></li>
-</ul>
+<p>API calls against your database REST API must be authenticated. </p>
 
 <blockquote>
 <p>Example code for an authenticated API call:</p>
@@ -385,6 +379,14 @@ curl -k -i -H <span class="s2">"Content-Type: application/json"</span><span clas
 <blockquote>
 <p>Make sure to replace <code>MY-API-KEY-HERE</code> with your actual API key.</p>
 </blockquote>
+
+<p>Authentication can be done with one of the following methods:</p>
+
+<ul>
+<li><strong>API key</strong> as a query parameter, e.g. <code>?apikey=xxxxx</code></li>
+<li><strong>API key</strong> as a HTTP header field, e.g. <code>x-apikey=xxxxx</code></li>
+<li><strong>Signed JWT token</strong> as a HTTP header field, <code>Authorization=Bearer xxxxx</code></li>
+</ul>
 
 <p>You can create your API keys on the admin dashboard of your database, shown in the example screenshot below.</p>
 
