@@ -147,11 +147,11 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>{mydatabase}</code></td>
+<td><code>{mydatabase}</code> <small>mandatory</small></td>
 <td>Your unique database name, e.g. <code>sports-xf03</code></td>
 </tr>
 <tr>
-<td><code>{collection}</code></td>
+<td><code>{collection}</code> <small>mandatory</small></td>
 <td>A unique collection name in your database, e.g. <code>players</code></td>
 </tr>
 </tbody></table>
@@ -260,7 +260,7 @@ curl -g -X GET <span class="se">\</span>
 <p><strong>HTTP REQUEST</strong></p>
 
 <blockquote>
-<p>Example code for GET one item:</p>
+<p>Example code to GET one item:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e <span class="se">\</span>
@@ -286,11 +286,11 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>{mydatabase}</code></td>
+<td><code>{mydatabase}</code> <small>mandatory</small></td>
 <td>Your unique database name, e.g. <code>sports-xf03</code></td>
 </tr>
 <tr>
-<td><code>{collection}</code></td>
+<td><code>{collection}</code> <small>mandatory</small></td>
 <td>A unique collection name in your database, e.g. <code>players</code></td>
 </tr>
 <tr>
@@ -298,6 +298,8 @@ curl -g -X GET <span class="se">\</span>
 <td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
 </tr>
 </tbody></table>
+
+<hr/>
 <h3 id='data-result-paging'>Data result paging</h3>
 <blockquote>
 <p>Data result paging output example below:</p>
