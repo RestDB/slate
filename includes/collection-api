@@ -1,8 +1,8 @@
 <h1 id='data-collection-api'>Data Collection API</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
-<h2 id='get-data-from-a-collection'>GET data from a collection</h2>
+<h2 id='get-data-list-from-a-collection'>GET data list from a collection</h2>
 <blockquote>
-<p>Example code to GET data from a collection:</p>
+<p>Example code to GET data list from a collection:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl -g -X GET <span class="se">\</span>
@@ -154,10 +154,6 @@ curl -g -X GET <span class="se">\</span>
 <td><code>{collection}</code></td>
 <td>A unique collection name in your database, e.g. <code>players</code></td>
 </tr>
-<tr>
-<td><code>{ID}</code> <small>optional</small></td>
-<td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
-</tr>
 </tbody></table>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -256,6 +252,32 @@ curl -g -X GET <span class="se">\</span>
 <td>format</td>
 <td></td>
 <td>.js or .html</td>
+</tr>
+</tbody></table>
+<h2 id='get-data-item-from-a-collection'>GET data item from a collection</h2>
+<p>Get data item by <code>_id</code> from a collection.</p>
+
+<p><strong>HTTP REQUEST</strong></p>
+
+<p><code>GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>{mydatabase}</code></td>
+<td>Your unique database name, e.g. <code>sports-xf03</code></td>
+</tr>
+<tr>
+<td><code>{collection}</code></td>
+<td>A unique collection name in your database, e.g. <code>players</code></td>
+</tr>
+<tr>
+<td><code>{ID}</code> <small>mandatory</small></td>
+<td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
 </tr>
 </tbody></table>
 <h3 id='data-result-paging'>Data result paging</h3>
