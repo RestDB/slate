@@ -269,16 +269,14 @@ curl -g -X GET <span class="se">\</span>
   -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
 </code></pre>
 <blockquote>
-<p>Example output:
-<code>json
-{
-    &quot;name&quot;: &quot;Jane&quot;,
-    &quot;status&quot;: &quot;amateur&quot;,
-    &quot;score&quot;: 42
-}
-</code></p>
+<p>Example output:</p>
 </blockquote>
-
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amateur"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p><code>GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
