@@ -138,26 +138,6 @@ curl -g -X GET <span class="se">\</span>
 </span></code></pre>
 <p><strong>HTTP REQUEST</strong></p>
 
-<blockquote>
-<p>Example code for GET one item:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'cache-control: no-cache,no-cache'</span> <span class="se">\</span>
-  -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
-</code></pre>
-<blockquote>
-<p>Example output:
-<code>json
-{
-    &quot;name&quot;: &quot;Jane&quot;,
-    &quot;status&quot;: &quot;amateur&quot;,
-    &quot;score&quot;: 42
-}
-</code></p>
-</blockquote>
-
 <p><code>GET https://{mydatabase}.restdb.io/rest/{collection}[?query parameters]</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -278,6 +258,26 @@ curl -g -X GET <span class="se">\</span>
 <p>Get data item by <code>_id</code> from a collection.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
+
+<blockquote>
+<p>Example code for GET one item:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache,no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
+</code></pre>
+<blockquote>
+<p>Example output:
+<code>json
+{
+    &quot;name&quot;: &quot;Jane&quot;,
+    &quot;status&quot;: &quot;amateur&quot;,
+    &quot;score&quot;: 42
+}
+</code></p>
+</blockquote>
 
 <p><code>GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
