@@ -462,7 +462,7 @@ curl -k -i -H <span class="s2">"Content-Type: application/json"</span><span clas
 <span class="c1">// by setting the Authorization header using the Bearer token scheme.</span>
 
   <span class="nx">$</span><span class="p">(</span><span class="s1">'.btn-api'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://websitedemo-4db9.restdb.io/rest/items?max=4"</span><span class="p">,{</span>
+    <span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://{mydatabase}.restdb.io/rest/items?max=4"</span><span class="p">,{</span>
     <span class="na">headers</span><span class="p">:{</span>
         <span class="s1">'Authorization'</span><span class="p">:</span><span class="s1">'Bearer '</span> <span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">"id_token"</span><span class="p">)</span>
         <span class="p">}</span>
@@ -486,10 +486,10 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <h2 id='custom-jwt-api'>Custom JWT API</h2>
 <p>Issue a new signed JWT with custom claims.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  https://restdbmail-34a8.restdb.io/auth/jwt <span class="se">\</span>
+  https://<span class="o">{</span>mydatabase<span class="o">}</span>.restdb.io/auth/jwt <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
-  -H <span class="s1">'x-apikey: 021ead58943c10990d6b9a50b5e884f11bf00'</span> <span class="se">\</span>
+  -H <span class="s1">'x-apikey: 021ead58943f10990f5b9b50b5e884f11bf00'</span> <span class="se">\</span>
   -d <span class="s1">'{
     "secret": "google.private_key",
     "algorithm": "RS256",
@@ -849,9 +849,43 @@ curl -g -X GET <span class="se">\</span>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<blockquote>
-<p>Example code to PUT one item:</p>
-</blockquote>
+<p><code>PUT https://{mydatabase}.restdb.io/rest/:collection/:ID</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>{mydatabase}</code> <small>mandatory</small></td>
+<td>Your unique database name, e.g. <code>sports-xf03</code></td>
+</tr>
+<tr>
+<td><code>{collection}</code> <small>mandatory</small></td>
+<td>A unique collection name in your database, e.g. <code>players</code></td>
+</tr>
+<tr>
+<td><code>{ID}</code> <small>mandatory</small></td>
+<td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
+</tr>
+</tbody></table>
+<h3 id='arguments'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>JSON</td>
+<td><small>mandatory</small></td>
+<td>Update document</td>
+</tr>
+</tbody></table>
 <h3 id='data-result-paging'>Data result paging</h3>
 <blockquote>
 <p>Data result paging output example below:</p>

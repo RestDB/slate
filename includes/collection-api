@@ -303,9 +303,43 @@ curl -g -X GET <span class="se">\</span>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<blockquote>
-<p>Example code to PUT one item:</p>
-</blockquote>
+<p><code>PUT https://{mydatabase}.restdb.io/rest/:collection/:ID</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>{mydatabase}</code> <small>mandatory</small></td>
+<td>Your unique database name, e.g. <code>sports-xf03</code></td>
+</tr>
+<tr>
+<td><code>{collection}</code> <small>mandatory</small></td>
+<td>A unique collection name in your database, e.g. <code>players</code></td>
+</tr>
+<tr>
+<td><code>{ID}</code> <small>mandatory</small></td>
+<td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
+</tr>
+</tbody></table>
+<h3 id='arguments'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>JSON</td>
+<td><small>mandatory</small></td>
+<td>Update document</td>
+</tr>
+</tbody></table>
 <h3 id='data-result-paging'>Data result paging</h3>
 <blockquote>
 <p>Data result paging output example below:</p>
