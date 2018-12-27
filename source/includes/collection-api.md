@@ -51,24 +51,36 @@ Parameter | Default | Description
 --------- | ------- | -----------
 q | `{}` | Database Query. JSON format
 h | `{}` | [Query hints](#query-hints) for Query and output. JSON format
-filter | | Free text search filter
+filter | none | Free text search filter
 sort | `_id` | Field to sort query result on
 dir | `-1` | Sort direction, -1 = ascending, 1 = descending
 skip | `0` | Skip forward in result data set
 max | `1000` | Data result page size
-metafields |  | Add system fields in data result. See [meta fields](#meta-fields)
-totals | | Return data and paging meta data. See [data result paging](#data-result-paging)
-groupby || Group data by field
-aggregate || Aggregate data by field
-apikey || Add an apikey in as request parameter instead of as a header value (not recommended)
-idtolink || URLs for links and images
-flatten || Place deep properies on root object
-referencedby || refs
-fetchmediadata || media
-fetchchildren || child data
-format || .js or .html
+metafields |  none | Add system fields in data result. See [meta fields](#meta-fields)
+totals | none | Return data and paging meta data. See [data result paging](#data-result-paging)
+groupby | none | Group data by field
+aggregate | none | Aggregate data by field
+apikey | none | Add an apikey in as request parameter instead of as a header value (not recommended)
+idtolink | none | URLs for links and images
+flatten | none | Place deep properies on root object
+referencedby | none | refs
+fetchmediadata | none | media
+fetchchildren | none | child data
+format | none | .js or .html
 
 ### Query hints
+
+You can add a hint to any query.
+
+```shell
+curl -g -X GET \
+  'https://{mydatabase}.restdb.io/rest/people?q={"name":"jane"}&h={"$max":20}' \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -H 'x-apikey: {MY_API_KEY_HERE}'
+```
+
+**Parameters**
 
 Hint | Description
 ---- | -----------
