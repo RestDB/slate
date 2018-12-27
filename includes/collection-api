@@ -148,7 +148,7 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 </tbody></table>
 <h3 id='query-hints'>Query hints</h3>
-<p>You can add a hint to any query, like this:</p>
+<p>You can add a hint to any query, like this example:</p>
 
 <p><code>GET https://{mydatabase}.restdb.io/rest/{collection}?q={&quot;name&quot;: &quot;jane&quot;}&amp;h={&quot;$max&quot;: 20}</code></p>
 
