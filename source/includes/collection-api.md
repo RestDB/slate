@@ -38,7 +38,7 @@ curl -g -X GET \
 `GET https://{mydatabase}.restdb.io/rest/{collection}[?query parameters]`
 
 
-### Parameters
+**Parameters**
 
 Parameter | Description
 --------- | -----------
@@ -59,7 +59,7 @@ max | `1000` | Data result page size
 metafields |  | Add system fields in data result. See [meta fields](#meta-fields)
 totals | | Return data and paging meta data. See [data result paging](#data-result-paging)
 groupby || Group data by field
-aggregate || Aggregae data by field
+aggregate || Aggregate data by field
 apikey || Add an apikey in as request parameter instead of as a header value (not recommended)
 idtolink || URLs for links and images
 flatten || Place deep properies on root object
@@ -67,100 +67,6 @@ referencedby || refs
 fetchmediadata || media
 fetchchildren || child data
 format || .js or .html
-
-## Fetch a data item from a collection
-Get a data item by the unique document `_id` from a collection.
-
-**HTTP REQUEST**
-
-> Example code to GET a data item:
-
-```shell
-curl -X GET \
-  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e \
-  -H 'Content-Type: application/json' \
-  -H 'cache-control: no-cache,no-cache' \
-  -H 'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'
-```
-
-> Example output:
-
-```json
-{
-    "name": "Jane",
-    "status": "amateur",
-    "score": 42
-}
-```
-
-`GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}`
-
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
-`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
-`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
-
-## Update a data item in a collection
-Update a data item by the unique document `_id` in a collection.
-
-**HTTP REQUEST**
-
-`PUT https://{mydatabase}.restdb.io/rest/{collection}/{ID}`
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
-`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
-`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
-`body` <small>mandatory</small> | Request body, a valid JSON document with properties to update
-
-
-### Data result paging
-> Data result paging output example below:
-
-```json
-{
-    "data": [
-        {
-            "_id": "5631d356f941f479000000ea",
-            "name": "Fames Institute",
-            "address": "8557 Elit, Rd.",
-            "city": "Goslar",
-            "zip": "Z2 8KA"
-        },
-        {
-            "_id": "5631d356f941f47900000109",
-            "name": "Urna LLP",
-            "address": "P.O. Box 108, 7946 Erat Avenue",
-            "city": "Morpeth",
-            "zip": "K1Z 2TI"
-        }
-    ],
-    "totals": {
-        "total": 102,
-        "count": 2,
-        "skip": 10,
-        "max": 2
-    }
-}
-```
-
-Use the totals query parameter to retrieve data about totals, page size and page skipping.
-
-The example query URL below shows an example:
-
-`GET https://sports-xf03.restdb.io/rest/companies?totals=true&skip=10&max=2`
-
-
-
-### Header values
-bal bla
 
 ### Query hints
 
@@ -226,6 +132,102 @@ Metafield | Description
 `_createdby` | Username (email) for the authenticated user that created the document
 `_changed` | ISO Date string from the document update time
 `_changedby` | Email/username for the authenticated user that changed the document
+
+## Fetch a data item from a collection
+Get a data item by the unique document `_id` from a collection.
+
+**HTTP REQUEST**
+
+> Example code to GET a data item:
+
+```shell
+curl -X GET \
+  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache,no-cache' \
+  -H 'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'
+```
+
+> Example output:
+
+```json
+{
+    "name": "Jane",
+    "status": "amateur",
+    "score": 42
+}
+```
+
+`GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}`
+
+
+**Parameters**
+
+Parameter | Description
+--------- | -----------
+`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
+`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
+`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+
+## Update a data item in a collection
+Update a data item by the unique document `_id` in a collection.
+
+**HTTP REQUEST**
+
+`PUT https://{mydatabase}.restdb.io/rest/{collection}/{ID}`
+
+**Parameters**
+
+Parameter | Description
+--------- | -----------
+`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
+`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
+`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+`body` <small>mandatory</small> | Request body, a valid JSON document with properties to update
+
+
+### Data result paging
+> Data result paging output example below:
+
+```json
+{
+    "data": [
+        {
+            "_id": "5631d356f941f479000000ea",
+            "name": "Fames Institute",
+            "address": "8557 Elit, Rd.",
+            "city": "Goslar",
+            "zip": "Z2 8KA"
+        },
+        {
+            "_id": "5631d356f941f47900000109",
+            "name": "Urna LLP",
+            "address": "P.O. Box 108, 7946 Erat Avenue",
+            "city": "Morpeth",
+            "zip": "K1Z 2TI"
+        }
+    ],
+    "totals": {
+        "total": 102,
+        "count": 2,
+        "skip": 10,
+        "max": 2
+    }
+}
+```
+
+Use the totals query parameter to retrieve data about totals, page size and page skipping.
+
+The example query URL below shows an example:
+
+`GET https://sports-xf03.restdb.io/rest/companies?totals=true&skip=10&max=2`
+
+
+
+### Header values
+bal bla
+
+
 
 ## Query language
 bla bla
