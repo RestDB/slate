@@ -27,8 +27,15 @@ You can create your API keys on the admin dashboard of your database, shown in t
 ## CORS API keys
 > Ajax call via CORS:
 
+```shell
+No example i cURL here.
+```
 
-```javascript--browser
+```hbs
+No example i HTML/Handlebars here.
+```
+
+```js
 // Call API from a web browser requires a CORS enabled API key
 var myCorsApiKey = "{MY-CORS-API-KEY-HERE}";
 var data = null;
@@ -60,7 +67,15 @@ You can manage your API-keys unders the Settings/API tab.
 
 ## Auth0.com JWT tokens
 
-```javascript--browser
+```shell
+No example i cURL here.
+```
+
+```handlebars
+No example i HTML/Handlebars here.
+```
+
+```javascript
 var AUTH0_CLIENT_ID='xxx'; 
 var AUTH0_DOMAIN='xxx';
 var AUTH0_CALLBACK_URL=location.href;
@@ -108,6 +123,7 @@ var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
     e.preventDefault();
   });
 ```
+
 RestDB supports direct integration with the auth0.com authentication service. JWT ([JSON Web Token](https://jwt.io/)) are signed with your Auth0 secret and verified by RestDB using the same secret.
 Auth0.com lets you add a multitude of authentication schemes to your app.
 ![Auth0.com lock component](https://ras-blogdb.restdb.io/media/57d1327a791a484c000001d2?s=o&key=327688688052565719837)
@@ -121,6 +137,14 @@ You can manage the Auth0.com integration and settions under Settings/Authenticat
 
 ## Custom JWT API
 Issue a new signed JWT with custom claims.
+
+```javascript
+No example i Javascript here.
+```
+
+```handlebars
+No example i HTML/Handlebars here.
+```
 
 ```shell
 curl -X POST \

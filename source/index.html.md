@@ -3,7 +3,7 @@ title: RestDB API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
-  - javascript--browser: JS
+  - javascript: JS
   - handlebars: HTML/Handlebars
   
 toc_footers:
