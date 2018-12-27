@@ -28,7 +28,9 @@ curl -k -i -H <span class="s2">"Content-Type: application/json"</span><span clas
 <blockquote>
 <p>Ajax call via CORS:</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript--browser"><code><span class="c1">// Call API from a web browser requires a CORS enabled API key</span>
+<pre class="highlight shell tab-shell"><code>No example i cURL here.
+</code></pre><pre class="highlight handlebars"><code>No example i HTML/Handlebars here.
+</code></pre><pre class="highlight javascript tab-javascript--browser"><code><span class="c1">// Call API from a web browser requires a CORS enabled API key</span>
 <span class="kd">var</span> <span class="nx">myCorsApiKey</span> <span class="o">=</span> <span class="s2">"{MY-CORS-API-KEY-HERE}"</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
