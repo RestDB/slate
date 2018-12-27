@@ -30,7 +30,9 @@ curl -g -X GET <span class="se">\</span>
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>GET https://{mydatabase}.restdb.io/rest/{collection}[?query parameters]</code></p>
-<h3 id='parameters'>Parameters</h3>
+
+<p><strong>Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -145,116 +147,6 @@ curl -g -X GET <span class="se">\</span>
 <td>.js or .html</td>
 </tr>
 </tbody></table>
-<h2 id='fetch-a-data-item-from-a-collection'>Fetch a data item from a collection</h2>
-<p>Get a data item by the unique document <code>_id</code> from a collection.</p>
-
-<p><strong>HTTP REQUEST</strong></p>
-
-<blockquote>
-<p>Example code to GET a data item:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'cache-control: no-cache,no-cache'</span> <span class="se">\</span>
-  -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
-</code></pre>
-<blockquote>
-<p>Example output:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amateur"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><code>GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
-<h3 id='parameters-2'>Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>{mydatabase}</code> <small>mandatory</small></td>
-<td>Your unique database name, e.g. <code>sports-xf03</code></td>
-</tr>
-<tr>
-<td><code>{collection}</code> <small>mandatory</small></td>
-<td>A unique collection name in your database, e.g. <code>players</code></td>
-</tr>
-<tr>
-<td><code>{ID}</code> <small>mandatory</small></td>
-<td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
-</tr>
-</tbody></table>
-<h2 id='update-a-data-item-in-a-collection'>Update a data item in a collection</h2>
-<p>Update a data item by the unique document <code>_id</code> in a collection.</p>
-
-<p><strong>HTTP REQUEST</strong></p>
-
-<p><code>PUT https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
-<h3 id='parameters-3'>Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>{mydatabase}</code> <small>mandatory</small></td>
-<td>Your unique database name, e.g. <code>sports-xf03</code></td>
-</tr>
-<tr>
-<td><code>{collection}</code> <small>mandatory</small></td>
-<td>A unique collection name in your database, e.g. <code>players</code></td>
-</tr>
-<tr>
-<td><code>{ID}</code> <small>mandatory</small></td>
-<td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
-</tr>
-<tr>
-<td><code>body</code> <small>mandatory</small></td>
-<td>Request body, a valid JSON document with properties to update</td>
-</tr>
-</tbody></table>
-<h3 id='data-result-paging'>Data result paging</h3>
-<blockquote>
-<p>Data result paging output example below:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f479000000ea"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fames Institute"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8557 Elit, Rd."</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goslar"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z2 8KA"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f47900000109"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Urna LLP"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P.O. Box 108, 7946 Erat Avenue"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Morpeth"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1Z 2TI"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Use the totals query parameter to retrieve data about totals, page size and page skipping.</p>
-
-<p>The example query URL below shows an example:</p>
-
-<p><code>GET https://sports-xf03.restdb.io/rest/companies?totals=true&amp;skip=10&amp;max=2</code></p>
-<h3 id='header-values'>Header values</h3>
-<p>bal bla</p>
 <h3 id='query-hints'>Query hints</h3>
 <table><thead>
 <tr>
@@ -365,6 +257,120 @@ curl -g -X GET <span class="se">\</span>
 <td>Email/username for the authenticated user that changed the document</td>
 </tr>
 </tbody></table>
+<h2 id='fetch-a-data-item-from-a-collection'>Fetch a data item from a collection</h2>
+<p>Get a data item by the unique document <code>_id</code> from a collection.</p>
+
+<p><strong>HTTP REQUEST</strong></p>
+
+<blockquote>
+<p>Example code to GET a data item:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache,no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
+</code></pre>
+<blockquote>
+<p>Example output:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amateur"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><code>GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>{mydatabase}</code> <small>mandatory</small></td>
+<td>Your unique database name, e.g. <code>sports-xf03</code></td>
+</tr>
+<tr>
+<td><code>{collection}</code> <small>mandatory</small></td>
+<td>A unique collection name in your database, e.g. <code>players</code></td>
+</tr>
+<tr>
+<td><code>{ID}</code> <small>mandatory</small></td>
+<td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
+</tr>
+</tbody></table>
+<h2 id='update-a-data-item-in-a-collection'>Update a data item in a collection</h2>
+<p>Update a data item by the unique document <code>_id</code> in a collection.</p>
+
+<p><strong>HTTP REQUEST</strong></p>
+
+<p><code>PUT https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>{mydatabase}</code> <small>mandatory</small></td>
+<td>Your unique database name, e.g. <code>sports-xf03</code></td>
+</tr>
+<tr>
+<td><code>{collection}</code> <small>mandatory</small></td>
+<td>A unique collection name in your database, e.g. <code>players</code></td>
+</tr>
+<tr>
+<td><code>{ID}</code> <small>mandatory</small></td>
+<td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
+</tr>
+<tr>
+<td><code>body</code> <small>mandatory</small></td>
+<td>Request body, a valid JSON document with properties to update</td>
+</tr>
+</tbody></table>
+<h3 id='data-result-paging'>Data result paging</h3>
+<blockquote>
+<p>Data result paging output example below:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f479000000ea"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fames Institute"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8557 Elit, Rd."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goslar"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z2 8KA"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f47900000109"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Urna LLP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P.O. Box 108, 7946 Erat Avenue"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Morpeth"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1Z 2TI"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use the totals query parameter to retrieve data about totals, page size and page skipping.</p>
+
+<p>The example query URL below shows an example:</p>
+
+<p><code>GET https://sports-xf03.restdb.io/rest/companies?totals=true&amp;skip=10&amp;max=2</code></p>
+<h3 id='header-values'>Header values</h3>
+<p>bal bla</p>
 <h2 id='query-language'>Query language</h2>
 <p>bla bla</p>
 <h3 id='logic'>Logic</h3>
