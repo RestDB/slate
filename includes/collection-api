@@ -4,8 +4,7 @@
 <blockquote>
 <p>Example code to GET data list from a collection:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl -g -X GET <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -g -X GET <span class="se">\</span>
   <span class="s1">'https://sports-xf03.restdb.io/rest/companies?q={"status":"professional"}&amp;sort=score&amp;max=10'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
