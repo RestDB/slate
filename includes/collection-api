@@ -68,7 +68,7 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 <tr>
 <td>filter</td>
-<td></td>
+<td>none</td>
 <td>Free text search filter</td>
 </tr>
 <tr>
@@ -93,61 +93,67 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 <tr>
 <td>metafields</td>
-<td></td>
+<td>none</td>
 <td>Add system fields in data result. See <a href="#meta-fields">meta fields</a></td>
 </tr>
 <tr>
 <td>totals</td>
-<td></td>
+<td>none</td>
 <td>Return data and paging meta data. See <a href="#data-result-paging">data result paging</a></td>
 </tr>
 <tr>
 <td>groupby</td>
-<td></td>
+<td>none</td>
 <td>Group data by field</td>
 </tr>
 <tr>
 <td>aggregate</td>
-<td></td>
-<td>Aggregae data by field</td>
+<td>none</td>
+<td>Aggregate data by field</td>
 </tr>
 <tr>
 <td>apikey</td>
-<td></td>
+<td>none</td>
 <td>Add an apikey in as request parameter instead of as a header value (not recommended)</td>
 </tr>
 <tr>
 <td>idtolink</td>
-<td></td>
+<td>none</td>
 <td>URLs for links and images</td>
 </tr>
 <tr>
 <td>flatten</td>
-<td></td>
+<td>none</td>
 <td>Place deep properies on root object</td>
 </tr>
 <tr>
 <td>referencedby</td>
-<td></td>
+<td>none</td>
 <td>refs</td>
 </tr>
 <tr>
 <td>fetchmediadata</td>
-<td></td>
+<td>none</td>
 <td>media</td>
 </tr>
 <tr>
 <td>fetchchildren</td>
-<td></td>
+<td>none</td>
 <td>child data</td>
 </tr>
 <tr>
 <td>format</td>
-<td></td>
+<td>none</td>
 <td>.js or .html</td>
 </tr>
 </tbody></table>
 <h3 id='query-hints'>Query hints</h3>
+<p>You can add a hint to any query, like this:</p>
+
+<p><code>GET https://{mydatabase}.restdb.io/rest/{collection}?q={&quot;name&quot;: &quot;jane&quot;}&amp;h={&quot;$max&quot;: 20}</code></p>
+
+<p><strong>Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Hint</th>
