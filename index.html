@@ -281,7 +281,7 @@
                     </ul>
                   </li>
                   <li>
-                    <a href="#post-resource" class="toc-h2 toc-link" data-title="POST resource">POST resource</a>
+                    <a href="#add-a-new-data-item-to-a-collection" class="toc-h2 toc-link" data-title="Add a new data item to a collection">Add a new data item to a collection</a>
                     <ul class="toc-list-h3">
                         <li>
                           <a href="#data-payload" class="toc-h3 toc-link" data-title="Data payload">Data payload</a>
@@ -649,7 +649,7 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 <tr>
 <td>filter</td>
-<td></td>
+<td>none</td>
 <td>Free text search filter</td>
 </tr>
 <tr>
@@ -674,61 +674,70 @@ curl -g -X GET <span class="se">\</span>
 </tr>
 <tr>
 <td>metafields</td>
-<td></td>
+<td>none</td>
 <td>Add system fields in data result. See <a href="#meta-fields">meta fields</a></td>
 </tr>
 <tr>
 <td>totals</td>
-<td></td>
+<td>none</td>
 <td>Return data and paging meta data. See <a href="#data-result-paging">data result paging</a></td>
 </tr>
 <tr>
 <td>groupby</td>
-<td></td>
+<td>none</td>
 <td>Group data by field</td>
 </tr>
 <tr>
 <td>aggregate</td>
-<td></td>
+<td>none</td>
 <td>Aggregate data by field</td>
 </tr>
 <tr>
 <td>apikey</td>
-<td></td>
+<td>none</td>
 <td>Add an apikey in as request parameter instead of as a header value (not recommended)</td>
 </tr>
 <tr>
 <td>idtolink</td>
-<td></td>
+<td>none</td>
 <td>URLs for links and images</td>
 </tr>
 <tr>
 <td>flatten</td>
-<td></td>
+<td>none</td>
 <td>Place deep properies on root object</td>
 </tr>
 <tr>
 <td>referencedby</td>
-<td></td>
+<td>none</td>
 <td>refs</td>
 </tr>
 <tr>
 <td>fetchmediadata</td>
-<td></td>
+<td>none</td>
 <td>media</td>
 </tr>
 <tr>
 <td>fetchchildren</td>
-<td></td>
+<td>none</td>
 <td>child data</td>
 </tr>
 <tr>
 <td>format</td>
-<td></td>
+<td>none</td>
 <td>.js or .html</td>
 </tr>
 </tbody></table>
 <h3 id='query-hints'>Query hints</h3>
+<p>You can add a hint to any query.</p>
+<pre class="highlight shell tab-shell"><code>curl -g -X GET <span class="se">\</span>
+  <span class="s1">'https://{mydatabase}.restdb.io/rest/people?q={"name":"jane"}&amp;h={"$max":20}'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'x-apikey: {MY_API_KEY_HERE}'</span>
+</code></pre>
+<p><strong>Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Hint</th>
@@ -958,9 +967,29 @@ curl -g -X GET <span class="se">\</span>
 <p>bla bla</p>
 <h3 id='aggregation'>Aggregation</h3>
 <p>bla bla</p>
-<h2 id='post-resource'>POST resource</h2>
-<p>bla bla</p>
-<h3 id='data-payload'>Data payload</h3>
+<h2 id='add-a-new-data-item-to-a-collection'>Add a new data item to a collection</h2>
+<p>POST a new data item by the to a collection.</p>
+
+<p><strong>HTTP REQUEST</strong></p>
+
+<blockquote>
+<p>Example code to POST a data item:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache,no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
+</code></pre>
+<blockquote>
+<p>Example output:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='data-payload'>Data payload</h3>
 <p>bla bla</p>
 <h3 id='using-post-to-emulate-put-delete-patch'>Using POST to emulate PUT, DELETE, PATCH</h3>
 <p>If your development platform or firewall rules prevent you from calling HTTP methods like PUT, PATCH or DELETE, use the <code>X-HTTP-Method-Override</code> header. Pass the method you want to use in the X-HTTP-Method-Override header and make your call using the POST method.</p>
