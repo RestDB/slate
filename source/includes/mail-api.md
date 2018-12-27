@@ -17,55 +17,7 @@ curl -X POST \
 }'
 ```
 
-```javascript--node
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://devdemo-ff5b.restdb.io/mail',
-  headers: 
-   { 'cache-control': 'no-cache',
-     'x-apikey': 'xxxxx',
-     'Content-Type': 'application/json' },
-  body: 
-   { to: 'jones@restdb.io',
-     subject: 'Trigger email from you database',
-     html: 'Hello email world!' },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-````
-
-```java
-HttpResponse<String> response = Unirest.post("https://devdemo-ff5b.restdb.io/mail")
-  .header("Content-Type", "application/json")
-  .header("x-apikey", "xxxxx")
-  .header("cache-control", "no-cache")
-  .body("{\n    \"to\":\"jones@restdb.io\",\n    \"subject\":\"Trigger email from you database\", \n    \"html\": \"Hello email world!\"\n}")
-  .asString();
-  ```
-
-  ```python
-  import requests
-
-url = "https://devdemo-ff5b.restdb.io/mail"
-
-payload = "{\n    \"to\":\"jones@restdb.io\",\n    \"subject\":\"Trigger email from you database\", \n    \"html\": \"Hello email world!\"\n}"
-headers = {
-    'Content-Type': "application/json",
-    'x-apikey': "xxxxx",
-    'cache-control': "no-cache"
-    }
-
-response = requests.request("POST", url, data=payload, headers=headers)
-
-print(response.text)
-```
-
-> Response (201)
+> Example response (201)
 
 ```json
 {

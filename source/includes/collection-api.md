@@ -3,102 +3,49 @@
 
 The [Restful](https://en.wikipedia.org/wiki/Representational_state_transfer) API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. 
 
-## GET data from a collection
+## Fetch a data list from a collection
 
-`GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}[?query parameters]`
 
+> Example code to GET data list from a collection:
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl -g -X GET \
-  'https://sports-xf03.restdb.io/rest/companies?q={"status":"professional"}' \
+  'https://sports-xf03.restdb.io/rest/companies?q={"status":"professional"}&sort=score&max=10' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -H 'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'
 ```
 
-```javascript--node
-// Node.js Javascript
-var request = require("request");
-
-var options = { method: 'GET',
-  url: 'https://sports-xf03.restdb.io/rest/players',
-  qs: { q: '{"status": "professional"}' },
-  headers: 
-   { 'cache-control': 'no-cache',
-     'x-apikey': '73bf145c901d1fcece81c26a9d0d1a64aa145',
-     'Content-Type': 'application/json' } };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-```
-
-```javascript--browser
-// Browser version
-var data = null;
-
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === 4) {
-    console.log(this.responseText);
-  }
-});
-
-xhr.open("GET", 'https://sports-xf03.restdb.io/rest/players?q={"status": "professional"}');
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("x-apikey", "73bf145c901d1fcece81c26a9d0d1a64aa145");
-xhr.setRequestHeader("cache-control", "no-cache");
-
-xhr.send(data);
-```
-
-```python
-Python code here...
-```
-
-```java
-Java code here...
-```
-
-```php
-PHP code here...
-```
-
-```csharp
-C# code here...
-```
-
-```swift
-Swift code here...
-```
-
-> The above queries result in the following JSON array output.
+> Example output:
 
 ```json
 [
   {
-    "name": "Jones",
+    "name": "Jane",
     "status": "professional",
-    "score": 42
+    "score": 9
+  },
+  {
+    "name": "Joey",
+    "status": "professional",
+    "score": 6
   }
 ]
 ```
+**HTTP REQUEST**
+
+`GET https://{mydatabase}.restdb.io/rest/{collection}[?query parameters]`
 
 
-### URL Parameters
+### Parameters
 
 Parameter | Description
 --------- | -----------
-`{mydatabase}` | Your unique database name, e.g. `sports-xf03`
-`{collection}` | A unique collection name in your database, e.g. `players`
-`{ID}` <small>optional</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
+`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
 
-### Query Parameters
+### Optional query parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
@@ -120,6 +67,59 @@ referencedby || refs
 fetchmediadata || media
 fetchchildren || child data
 format || .js or .html
+
+## Fetch a data item from a collection
+Get a data item by the unique document `_id` from a collection.
+
+**HTTP REQUEST**
+
+> Example code to GET a data item:
+
+```shell
+curl -X GET \
+  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache,no-cache' \
+  -H 'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'
+```
+
+> Example output:
+
+```json
+{
+    "name": "Jane",
+    "status": "amateur",
+    "score": 42
+}
+```
+
+`GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}`
+
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
+`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
+`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+
+## Update a data item in a collection
+Update a data item by the unique document `_id` in a collection.
+
+**HTTP REQUEST**
+
+`PUT https://{mydatabase}.restdb.io/rest/{collection}/{ID}`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
+`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
+`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+`body` <small>mandatory</small> | Request body, a valid JSON document with properties to update
+
 
 ### Data result paging
 > Data result paging output example below:

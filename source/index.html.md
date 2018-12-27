@@ -3,14 +3,9 @@ title: RestDB API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
-  - javascript--node: Node.js
   - javascript--browser: JS
-  - python: Python
-  - php: PHP
-  - java: Java
-  - csharp: C#
-  - swift: Swift
-
+  - handlebars: HTML/Handlebars
+  
 toc_footers:
   - <a href='https://restdb.io'>Sign Up for a new RestDB account here</a>
   
@@ -39,6 +34,7 @@ search: true
 ---
 # Introduction
 This is the RestDB developer documentation and API reference.
+RestDB.io is an online NoSQL database designed for speed and simplicity. A small but smart feature set gives you powerful building blocks for creating business application backends (backoffice), dynamic web content and API centric solutions.
 
 
 
