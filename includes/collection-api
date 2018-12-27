@@ -395,6 +395,8 @@ curl -g -X GET <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache,no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+  <span class="k">return</span>
 </code></pre>
 <blockquote>
 <p>Example output:</p>
