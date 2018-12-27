@@ -391,6 +391,8 @@ curl -g -X GET <span class="se">\</span>
 
 <p><strong>HTTP REQUEST</strong></p>
 
+<p><code>POST https://sports-xf03.restdb.io/rest/companies</code></p>
+
 <blockquote>
 <p>Example code to POST a data item:</p>
 </blockquote>
