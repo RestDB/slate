@@ -149,8 +149,8 @@ curl -g -X GET <span class="se">\</span>
 </tbody></table>
 <h3 id='query-hints'>Query hints</h3>
 <p>You can add a hint to any query.</p>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://{mydatabase}.restdb.io/rest/people?q={%22name%22:%20%22jane%22}&amp;h={%22$max%22:%2020}'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -g -X GET <span class="se">\</span>
+  <span class="s1">'https://{mydatabase}.restdb.io/rest/people?q={"name":%20"jane"}&amp;h={"$max":20}'</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'x-apikey: {MY_API_KEY_HERE}'</span>
