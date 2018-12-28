@@ -1,1 +1,1 @@
-npx onchange "./source/includes/*.md" -- bundle exec middleman build
+bundle exec middleman server --watcher-force-polling --watcher-latency=1 
