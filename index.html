@@ -253,17 +253,17 @@
                         <li>
                           <a href="#meta-fields" class="toc-h3 toc-link" data-title="Meta fields">Meta fields</a>
                         </li>
+                        <li>
+                          <a href="#data-result-paging" class="toc-h3 toc-link" data-title="Data result paging">Data result paging</a>
+                        </li>
                     </ul>
                   </li>
                   <li>
-                    <a href="#fetch-a-data-item-from-a-collection" class="toc-h2 toc-link" data-title="Fetch a data item from a collection">Fetch a data item from a collection</a>
+                    <a href="#fetch-a-specific-document-record-from-a-collection" class="toc-h2 toc-link" data-title="Fetch a specific document/record from a collection">Fetch a specific document/record from a collection</a>
                   </li>
                   <li>
                     <a href="#update-a-data-item-in-a-collection" class="toc-h2 toc-link" data-title="Update a data item in a collection">Update a data item in a collection</a>
                     <ul class="toc-list-h3">
-                        <li>
-                          <a href="#data-result-paging" class="toc-h3 toc-link" data-title="Data result paging">Data result paging</a>
-                        </li>
                         <li>
                           <a href="#header-values" class="toc-h3 toc-link" data-title="Header values">Header values</a>
                         </li>
@@ -850,8 +850,42 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <td>Email/username for the authenticated user that changed the document</td>
 </tr>
 </tbody></table>
-<h2 id='fetch-a-data-item-from-a-collection'>Fetch a data item from a collection</h2>
-<p>Get a data item by the unique document <code>_id</code> from a collection.</p>
+<h3 id='data-result-paging'>Data result paging</h3>
+<blockquote>
+<p>Data result paging output example below:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f479000000ea"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fames Institute"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8557 Elit, Rd."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goslar"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z2 8KA"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f47900000109"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Urna LLP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P.O. Box 108, 7946 Erat Avenue"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Morpeth"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1Z 2TI"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use the totals query parameter to retrieve data about totals, page size and page skipping.</p>
+
+<p>The example query URL below shows an example:</p>
+
+<p><code>GET https://sports-xf03.restdb.io/rest/companies?totals=true&amp;skip=10&amp;max=2</code></p>
+<h2 id='fetch-a-specific-document-record-from-a-collection'>Fetch a specific document/record from a collection</h2>
+<p>Get document by the unique document <code>_id</code> from a collection.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
@@ -928,40 +962,6 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <td>Request body, a valid JSON document with properties to update</td>
 </tr>
 </tbody></table>
-<h3 id='data-result-paging'>Data result paging</h3>
-<blockquote>
-<p>Data result paging output example below:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f479000000ea"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fames Institute"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8557 Elit, Rd."</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goslar"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z2 8KA"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5631d356f941f47900000109"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Urna LLP"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P.O. Box 108, 7946 Erat Avenue"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Morpeth"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K1Z 2TI"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Use the totals query parameter to retrieve data about totals, page size and page skipping.</p>
-
-<p>The example query URL below shows an example:</p>
-
-<p><code>GET https://sports-xf03.restdb.io/rest/companies?totals=true&amp;skip=10&amp;max=2</code></p>
 <h3 id='header-values'>Header values</h3>
 <p>bal bla</p>
 <h2 id='query-language'>Query language</h2>
