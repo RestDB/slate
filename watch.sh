@@ -1,0 +1,1 @@
+npx onchange "./source/includes/*.md" -- bundle exec middleman build
