@@ -4,7 +4,7 @@ title: RestDB API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
   - javascript: JS
-  - handlebars: HTML/Handlebars
+  - handlebars: Web
   
 toc_footers:
   - <a href='https://restdb.io'>Sign Up for a new RestDB account here</a>

@@ -9,7 +9,6 @@ The [Restful](https://en.wikipedia.org/wiki/Representational_state_transfer) API
 > Example code to GET data list from a collection:
 
 ```shell
-# With shell, you can just pass the correct header with each request
 curl -g -X GET \
   'https://sports-xf03.restdb.io/rest/companies?q={"status":"professional"}&sort=score&max=10' \
   -H 'Content-Type: application/json' \
@@ -35,7 +34,7 @@ curl -g -X GET \
 ```
 **HTTP REQUEST**
 
-`GET https://{mydatabase}.restdb.io/rest/{collection}[?query parameters]`
+`GET https://{mydatabase}.restdb.io/rest/{collection}[?params]`
 
 
 **Parameters**
@@ -44,6 +43,7 @@ Parameter | Description
 --------- | -----------
 `{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
 `{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
+`[params]` <small>optional</small> | See query [parameters](#optional-query-parameters) listed below
 
 ### Optional query parameters
 
@@ -251,8 +251,48 @@ bla bla
 bla bla
 
 
-## POST resource
-bla bla
+## Add a new data item to a collection
+
+> Example code to POST a data item:
+
+```shell
+curl -X POST \
+  https://sports-xf03.restdb.io/rest/companies/570e052d98290e490000006e \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache,no-cache' \
+  -H 'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'
+```
+
+```python
+def func():
+  return
+```
+
+> Example output:
+
+```json
+{
+    "name": "xx",
+    "status": "xx",
+    "score": 42
+}
+```
+
+POST a new data item by the to a collection.
+
+**HTTP REQUEST**
+
+`POST https://sports-xf03.restdb.io/rest/companies`
+
+**Parameters**
+
+Parameter | Description
+--------- | -----------
+`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
+`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
+`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+`body` <small>mandatory</small> | Request body, a valid JSON document with properties to update
+
 
 ### Data payload
 bla bla
