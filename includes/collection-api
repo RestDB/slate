@@ -191,7 +191,12 @@
 <td>Aggregate data by expression(s). <code>h={&quot;$aggregate&quot;:[&quot;SUM:score&quot;]}</code>. See <a href="#aggregation">aggregation</a></td>
 </tr>
 </tbody></table>
-<h3 id='meta-fields'>Meta fields</h3>
+<h3 id='meta-fields'>Meta fields</h3><pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  https://sports-xf03.restdb.io/rest/companies?&amp;metafields<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache,no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'</span>
+</code></pre>
 <blockquote>
 <p>Example output data with metafields:</p>
 </blockquote>
@@ -226,9 +231,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>The example query URL below show how metafields are return with the user data.</p>
-
-<p><code>GET https://sports-xf03.restdb.io/rest/companies?&amp;metafields=true</code></p>
+<p>Add the metafields URL parameter to get metafields in data result set.</p>
 
 <table><thead>
 <tr>
