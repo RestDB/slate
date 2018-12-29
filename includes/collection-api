@@ -361,6 +361,10 @@
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}/{ID}</code></p>
+<h2 id='create-a-new-document-in-a-collection-request-body-is-a-valid-json-document'>Create a new document in a collection. Request body is a valid JSON document</h2>
+<p><strong>HTTP REQUEST</strong></p>
+
+<p><code>POST   https://{mydatabase}.restdb.io/rest/{mycollection}</code></p>
 <h2 id='update-a-data-item-in-a-collection'>Update a data item in a collection</h2>
 <p>Update a data item by the unique document <code>_id</code> in a collection.</p>
 
