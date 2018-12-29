@@ -262,6 +262,12 @@
                     <a href="#fetch-a-specific-document-record-from-a-collection" class="toc-h2 toc-link" data-title="Fetch a specific document/record from a collection">Fetch a specific document/record from a collection</a>
                   </li>
                   <li>
+                    <a href="#fetch-a-document-record-list-from-a-sub-collection" class="toc-h2 toc-link" data-title="Fetch a document/record list from a sub collection">Fetch a document/record list from a sub collection</a>
+                  </li>
+                  <li>
+                    <a href="#get-document-from-subcollection-subcollection-is-field-name-of-type-child-and-id-is-a-valid-objectid" class="toc-h2 toc-link" data-title="Get document from subcollection (subcollection is field name of type child) and ID is a valid ObjectID.">Get document from subcollection (subcollection is field name of type child) and ID is a valid ObjectID.</a>
+                  </li>
+                  <li>
                     <a href="#update-a-data-item-in-a-collection" class="toc-h2 toc-link" data-title="Update a data item in a collection">Update a data item in a collection</a>
                     <ul class="toc-list-h3">
                         <li>
@@ -934,6 +940,14 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
 </tr>
 </tbody></table>
+<h2 id='fetch-a-document-record-list-from-a-sub-collection'>Fetch a document/record list from a sub collection</h2>
+<p><strong>HTTP REQUEST</strong></p>
+
+<p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}</code></p>
+<h2 id='get-document-from-subcollection-subcollection-is-field-name-of-type-child-and-id-is-a-valid-objectid'>Get document from subcollection (subcollection is field name of type child) and ID is a valid ObjectID.</h2>
+<p><strong>HTTP REQUEST</strong></p>
+
+<p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}/{ID}</code></p>
 <h2 id='update-a-data-item-in-a-collection'>Update a data item in a collection</h2>
 <p>Update a data item by the unique document <code>_id</code> in a collection.</p>
 
