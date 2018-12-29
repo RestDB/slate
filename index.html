@@ -242,7 +242,7 @@
             <a href="#data-collection-api" class="toc-h1 toc-link" data-title="Data Collection API">Data Collection API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#query-a-data-list-from-a-collection" class="toc-h2 toc-link" data-title="Query a data list from a collection">Query a data list from a collection</a>
+                    <a href="#query-data" class="toc-h2 toc-link" data-title="Query data">Query data</a>
                     <ul class="toc-list-h3">
                         <li>
                           <a href="#optional-query-parameters" class="toc-h3 toc-link" data-title="Optional query parameters">Optional query parameters</a>
@@ -259,19 +259,19 @@
                     </ul>
                   </li>
                   <li>
-                    <a href="#find-a-specific-document-record-in-a-collection" class="toc-h2 toc-link" data-title="Find a specific document/record in a collection">Find a specific document/record in a collection</a>
+                    <a href="#find-a-document" class="toc-h2 toc-link" data-title="Find a document">Find a document</a>
                   </li>
                   <li>
-                    <a href="#find-a-document-record-list-in-a-sub-collection" class="toc-h2 toc-link" data-title="Find a document/record list in a sub collection">Find a document/record list in a sub collection</a>
+                    <a href="#find-a-sub-document-list" class="toc-h2 toc-link" data-title="Find a sub document list">Find a sub document list</a>
                   </li>
                   <li>
-                    <a href="#find-document-in-subcollection" class="toc-h2 toc-link" data-title="Find document in subcollection">Find document in subcollection</a>
+                    <a href="#find-a-sub-document" class="toc-h2 toc-link" data-title="Find a sub document">Find a sub document</a>
                   </li>
                   <li>
-                    <a href="#create-a-new-document-in-a-collection" class="toc-h2 toc-link" data-title="Create a new document in a collection">Create a new document in a collection</a>
+                    <a href="#create-a-new-document" class="toc-h2 toc-link" data-title="Create a new document">Create a new document</a>
                   </li>
                   <li>
-                    <a href="#update-a-data-item-in-a-collection" class="toc-h2 toc-link" data-title="Update a data item in a collection">Update a data item in a collection</a>
+                    <a href="#update-a-document" class="toc-h2 toc-link" data-title="Update a document">Update a document</a>
                     <ul class="toc-list-h3">
                         <li>
                           <a href="#header-values" class="toc-h3 toc-link" data-title="Header values">Header values</a>
@@ -590,7 +590,7 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 </aside>
 <h1 id='data-collection-api'>Data Collection API</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
-<h2 id='query-a-data-list-from-a-collection'>Query a data list from a collection</h2>
+<h2 id='query-data'>Query data</h2>
 <blockquote>
 <p>Example code to GET data list from a collection:</p>
 </blockquote>
@@ -897,7 +897,7 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>For application that needs paging in the result set, use the <code>?totals=true</code> query parameter together with <code>skip</code> and <code>max</code> to retrieve data about totals, page size and page skipping.</p>
-<h2 id='find-a-specific-document-record-in-a-collection'>Find a specific document/record in a collection</h2>
+<h2 id='find-a-document'>Find a document</h2>
 <p>Get document by the unique document <code>_id</code> from a collection.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
@@ -943,23 +943,23 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
 </tr>
 </tbody></table>
-<h2 id='find-a-document-record-list-in-a-sub-collection'>Find a document/record list in a sub collection</h2>
+<h2 id='find-a-sub-document-list'>Find a sub document list</h2>
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}</code></p>
-<h2 id='find-document-in-subcollection'>Find document in subcollection</h2>
+<h2 id='find-a-sub-document'>Find a sub document</h2>
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}/{ID}</code></p>
 
 <p>Subcollection is field name of type child and ID is a valid ObjectID.</p>
-<h2 id='create-a-new-document-in-a-collection'>Create a new document in a collection</h2>
+<h2 id='create-a-new-document'>Create a new document</h2>
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>POST   https://{mydatabase}.restdb.io/rest/{mycollection}</code></p>
 
 <p>Request body is a valid JSON document.</p>
-<h2 id='update-a-data-item-in-a-collection'>Update a data item in a collection</h2>
+<h2 id='update-a-document'>Update a document</h2>
 <p>Update a data item by the unique document <code>_id</code> in a collection.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
