@@ -3,7 +3,7 @@
 
 The [Restful](https://en.wikipedia.org/wiki/Representational_state_transfer) API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. 
 
-## Fetch a data list from a collection
+## Query data
 
 
 > Example code to GET data list from a collection:
@@ -93,6 +93,14 @@ Hint | Description
 
 
 ### Meta fields
+
+```shell
+curl -X GET \
+  https://sports-xf03.restdb.io/rest/companies?&metafields=true \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache,no-cache' \
+  -H 'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'
+```
 > Example output data with metafields:
 
 ```json
@@ -128,10 +136,7 @@ Hint | Description
 ]
 ```
 
-The example query URL below show how metafields are return with the user data.
-
-`GET https://sports-xf03.restdb.io/rest/companies?&metafields=true`
-
+Add the metafields URL parameter to get metafields in data result set.
 
 
 Metafield | Description
@@ -145,8 +150,50 @@ Metafield | Description
 `_changed` | ISO Date string from the document update time
 `_changedby` | Email/username for the authenticated user that changed the document
 
-## Fetch a data item from a collection
-Get a data item by the unique document `_id` from a collection.
+### Data result paging
+
+```shell
+curl -X GET \
+  https://sports-xf03.restdb.io/rest/companies?totals=true&skip=10&max=2 \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache,no-cache' \
+  -H 'x-apikey: 73bf145c901d1feecf80c26a9d0d1a64aa145'
+```
+
+> Data result paging output example below:
+
+```json
+{
+    "data": [
+        {
+            "_id": "5631d356f941f479000000ea",
+            "name": "Fames Institute",
+            "address": "8557 Elit, Rd.",
+            "city": "Goslar",
+            "zip": "Z2 8KA"
+        },
+        {
+            "_id": "5631d356f941f47900000109",
+            "name": "Urna LLP",
+            "address": "P.O. Box 108, 7946 Erat Avenue",
+            "city": "Morpeth",
+            "zip": "K1Z 2TI"
+        }
+    ],
+    "totals": {
+        "total": 102,
+        "count": 2,
+        "skip": 10,
+        "max": 2
+    }
+}
+```
+
+For application that needs paging in the result set, use the `?totals=true` query parameter together with `skip` and `max` to retrieve data about totals, page size and page skipping.
+
+
+## Find a document
+Get document by the unique document `_id` from a collection.
 
 **HTTP REQUEST**
 
@@ -181,7 +228,32 @@ Parameter | Description
 `{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
 `{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
 
-## Update a data item in a collection
+
+## Find a sub document list
+
+**HTTP REQUEST**
+
+`GET	https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}`
+
+
+## Find a sub document
+
+**HTTP REQUEST**
+
+`GET	https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}/{ID}`
+
+Subcollection is field name of type child and ID is a valid ObjectID.
+
+## Create a new document
+
+**HTTP REQUEST**
+
+`POST	https://{mydatabase}.restdb.io/rest/{mycollection}`
+
+Request body is a valid JSON document.
+
+
+## Update a document
 Update a data item by the unique document `_id` in a collection.
 
 **HTTP REQUEST**
@@ -197,42 +269,6 @@ Parameter | Description
 `{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
 `body` <small>mandatory</small> | Request body, a valid JSON document with properties to update
 
-
-### Data result paging
-> Data result paging output example below:
-
-```json
-{
-    "data": [
-        {
-            "_id": "5631d356f941f479000000ea",
-            "name": "Fames Institute",
-            "address": "8557 Elit, Rd.",
-            "city": "Goslar",
-            "zip": "Z2 8KA"
-        },
-        {
-            "_id": "5631d356f941f47900000109",
-            "name": "Urna LLP",
-            "address": "P.O. Box 108, 7946 Erat Avenue",
-            "city": "Morpeth",
-            "zip": "K1Z 2TI"
-        }
-    ],
-    "totals": {
-        "total": 102,
-        "count": 2,
-        "skip": 10,
-        "max": 2
-    }
-}
-```
-
-Use the totals query parameter to retrieve data about totals, page size and page skipping.
-
-The example query URL below shows an example:
-
-`GET https://sports-xf03.restdb.io/rest/companies?totals=true&skip=10&max=2`
 
 
 
