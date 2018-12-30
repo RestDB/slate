@@ -1,5 +1,5 @@
 <h1 id='data-collection-api'>Data Collection API</h1>
-<p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. </p>
+<p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST API endpoint. Client applications communicate through the URL with JSON documents (similar to a database record). A database collection (similar as a SQL table) contains your JSON documents. </p>
 <h2 id='query-data'>Query data</h2>
 <blockquote>
 <p>Example code to GET data list from a collection:</p>
