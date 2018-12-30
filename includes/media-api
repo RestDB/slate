@@ -1,4 +1,4 @@
 <h1 id='media-content-api'>Media Content API</h1>
-<p>bla bla media</p>
+<p>A restdb.io database has its own media archive where you can store images and other files. The Media Content API can be used to both upload and retrieve files from the media archive.</p>
 
 <p>Read more about media archive <a href="https://restdb.io/docs/media-archive">here</a>.</p>
