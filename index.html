@@ -591,8 +591,6 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <h1 id='data-collection-api'>Data Collection API</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Restful</a> API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST API endpoint. Client applications communicate through the URL with JSON documents (similar to a database record). A database collection (similar as a SQL table) contains your JSON documents. </p>
 <h2 id='query-data'>Query data</h2>
-<p>Query the database for all or a sub set of the documents in a collection.</p>
-
 <blockquote>
 <p>Example code to GET data list from a collection:</p>
 </blockquote>
@@ -618,6 +616,8 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+<p>Query the database for all or a sub set of the documents in a collection.</p>
+
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>GET https://{mydatabase}.restdb.io/rest/{collection}[?params]</code></p>
@@ -946,23 +946,29 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 </tr>
 </tbody></table>
 <h2 id='find-a-sub-document-list'>Find a sub document list</h2>
+<p>Find a document list that is in a child relation with the parent document.</p>
+
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}</code></p>
 <h2 id='find-a-sub-document'>Find a sub document</h2>
+<p>Find a document that is in a child relation with the parent document.</p>
+
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}/{ID}</code></p>
 
 <p>Subcollection is field name of type child and ID is a valid ObjectID.</p>
 <h2 id='create-a-new-document'>Create a new document</h2>
+<p>Create a new JSON document/record in a collection.</p>
+
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code>POST   https://{mydatabase}.restdb.io/rest/{mycollection}</code></p>
 
 <p>Request body is a valid JSON document.</p>
 <h2 id='update-a-document'>Update a document</h2>
-<p>Update a data item by the unique document <code>_id</code> in a collection.</p>
+<p>Update a JSON document/record in a collection. The document to update is identified by the unique document <code>_id</code>.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
