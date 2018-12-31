@@ -922,7 +922,7 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
     </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><code>GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
+<p><code>GET https://{mydatabase}.restdb.io/rest/{collection}/{_id}</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -941,7 +941,7 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <td>A unique collection name in your database, e.g. <code>players</code></td>
 </tr>
 <tr>
-<td><code>{ID}</code> <small>mandatory</small></td>
+<td><code>{_id}</code> <small>mandatory</small></td>
 <td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
 </tr>
 </tbody></table>
@@ -950,13 +950,13 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}</code></p>
+<p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{_id}/{my-subcollection}</code></p>
 <h2 id='find-a-sub-document'>Find a sub document</h2>
 <p>Find a document that is in a child relation with the parent document.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}/{ID}</code></p>
+<p><code>GET    https://{mydatabase}.restdb.io/rest/{mycollection}/{_id}/{my-subcollection}/{_id}</code></p>
 
 <p>Subcollection is field name of type child and ID is a valid ObjectID.</p>
 <h2 id='create-a-new-document'>Create a new document</h2>
@@ -972,7 +972,7 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code>PUT https://{mydatabase}.restdb.io/rest/{collection}/{ID}</code></p>
+<p><code>PUT https://{mydatabase}.restdb.io/rest/{collection}/{_id}</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -991,7 +991,7 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <td>A unique collection name in your database, e.g. <code>players</code></td>
 </tr>
 <tr>
-<td><code>{ID}</code> <small>mandatory</small></td>
+<td><code>{_id}</code> <small>mandatory</small></td>
 <td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
 </tr>
 <tr>
@@ -1051,7 +1051,7 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <td>A unique collection name in your database, e.g. <code>players</code></td>
 </tr>
 <tr>
-<td><code>{ID}</code> <small>mandatory</small></td>
+<td><code>{_id}</code> <small>mandatory</small></td>
 <td>A unique document ID, e.g. <code>570e052d98290e490000006e</code></td>
 </tr>
 <tr>
