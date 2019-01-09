@@ -1,5 +1,5 @@
 ---
-title: RestDB API Reference
+title: RestDB API Docs
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
@@ -33,7 +33,7 @@ includes:
 search: true
 ---
 # Introduction
-This is the RestDB developer documentation and API reference.
+This is the RestDB API documentation.
 RestDB.io is an online NoSQL database designed for speed and simplicity. A small but smart feature set gives you powerful building blocks for creating business application backends (backoffice), dynamic web content and API centric solutions.
 
 

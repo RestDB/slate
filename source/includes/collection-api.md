@@ -1,10 +1,9 @@
 
 # Data Collection API
 
-The [Restful](https://en.wikipedia.org/wiki/Representational_state_transfer) API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST endpoint. Client applications communicate through the URL with JSON objects. A database collection (same as a SQL table) contains your JSON documents. 
+The [Restful](https://en.wikipedia.org/wiki/Representational_state_transfer) API automatically reflects your database schema. All restdb.io databases have a unique URL as a REST API endpoint. Client applications communicate through the URL with JSON documents (similar to a database record). A database collection (similar as a SQL table) contains your JSON documents. 
 
 ## Query data
-
 
 > Example code to GET data list from a collection:
 
@@ -32,6 +31,9 @@ curl -g -X GET \
   }
 ]
 ```
+
+Query the database for all or a sub set of the documents in a collection.
+
 **HTTP REQUEST**
 
 `GET https://{mydatabase}.restdb.io/rest/{collection}[?params]`
@@ -193,6 +195,7 @@ For application that needs paging in the result set, use the `?totals=true` quer
 
 
 ## Find a document
+
 Get document by the unique document `_id` from a collection.
 
 **HTTP REQUEST**
@@ -217,7 +220,7 @@ curl -X GET \
 }
 ```
 
-`GET https://{mydatabase}.restdb.io/rest/{collection}/{ID}`
+`GET https://{mydatabase}.restdb.io/rest/{collection}/{_id}`
 
 
 **Parameters**
@@ -226,25 +229,31 @@ Parameter | Description
 --------- | -----------
 `{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
 `{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
-`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+`{_id}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
 
 
 ## Find a sub document list
 
+Find a document list that is in a child relation with the parent document.
+
 **HTTP REQUEST**
 
-`GET	https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}`
+`GET	https://{mydatabase}.restdb.io/rest/{mycollection}/{_id}/{my-subcollection}`
 
 
 ## Find a sub document
 
+Find a document that is in a child relation with the parent document.
+
 **HTTP REQUEST**
 
-`GET	https://{mydatabase}.restdb.io/rest/{mycollection}/{ID}/{my-subcollection}/{ID}`
+`GET	https://{mydatabase}.restdb.io/rest/{mycollection}/{_id}/{my-subcollection}/{_id}`
 
 Subcollection is field name of type child and ID is a valid ObjectID.
 
 ## Create a new document
+
+Create a new JSON document/record in a collection.
 
 **HTTP REQUEST**
 
@@ -254,20 +263,21 @@ Request body is a valid JSON document.
 
 
 ## Update a document
-Update a data item by the unique document `_id` in a collection.
+
+Update a JSON document/record in a collection. The document to update is identified by the unique document `_id`.
 
 **HTTP REQUEST**
 
-`PUT https://{mydatabase}.restdb.io/rest/{collection}/{ID}`
+`PUT https://{mydatabase}.restdb.io/rest/{collection}/{_id}`
 
 **Parameters**
 
-Parameter | Description
---------- | -----------
-`{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
-`{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
-`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
-`body` <small>mandatory</small> | Request body, a valid JSON document with properties to update
+Parameter | Required | Description
+--------- | -------- | -----------
+`{mydatabase}` | <small>required</small> | Your unique database name, e.g. `sports-xf03`
+`{collection}` | <small>required</small> | A unique collection name in your database, e.g. `players`
+`{_id}` | <small>required</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+`body` | <small>required</small> | Request body, a valid JSON document with properties to update
 
 
 
@@ -318,7 +328,7 @@ POST a new data item by the to a collection.
 
 **HTTP REQUEST**
 
-`POST https://sports-xf03.restdb.io/rest/companies`
+`POST https://{mydatabase}.restdb.io/rest/{mycollection}`
 
 **Parameters**
 
@@ -326,7 +336,7 @@ Parameter | Description
 --------- | -----------
 `{mydatabase}` <small>mandatory</small> | Your unique database name, e.g. `sports-xf03`
 `{collection}` <small>mandatory</small> | A unique collection name in your database, e.g. `players`
-`{ID}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
+`{_id}` <small>mandatory</small> | A unique document ID, e.g. `570e052d98290e490000006e`
 `body` <small>mandatory</small> | Request body, a valid JSON document with properties to update
 
 
