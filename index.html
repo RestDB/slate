@@ -272,11 +272,6 @@
                   </li>
                   <li>
                     <a href="#update-a-document" class="toc-h2 toc-link" data-title="Update a document">Update a document</a>
-                    <ul class="toc-list-h3">
-                        <li>
-                          <a href="#header-values" class="toc-h3 toc-link" data-title="Header values">Header values</a>
-                        </li>
-                    </ul>
                   </li>
                   <li>
                     <a href="#query-language" class="toc-h2 toc-link" data-title="Query language">Query language</a>
@@ -654,12 +649,12 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <tr>
 <td>q</td>
 <td><code>{}</code></td>
-<td>Database Query. JSON format</td>
+<td>Database Query. See <a href="#query-language">query language</a> for details.</td>
 </tr>
 <tr>
 <td>h</td>
 <td><code>{}</code></td>
-<td><a href="#query-hints">Query hints</a> for Query and output. JSON format</td>
+<td>See <a href="#query-hints">query hints</a> for Query and output. JSON format</td>
 </tr>
 <tr>
 <td>filter</td>
@@ -1004,11 +999,10 @@ Auth0.com lets you add a multitude of authentication schemes to your app.
 <td>Request body, a valid JSON document with properties to update</td>
 </tr>
 </tbody></table>
-<h3 id='header-values'>Header values</h3>
-<p>bal bla</p>
 <h2 id='query-language'>Query language</h2>
-<p>bla bla</p>
-<h3 id='logic'>Logic</h3>
+<p>Query your data with MongoDB query language.</p>
+<pre class="highlight json tab-json"><code><span class="err">?q=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='logic'>Logic</h3>
 <p>bla bla</p>
 <h3 id='aggregation'>Aggregation</h3>
 <p>bla bla</p>
